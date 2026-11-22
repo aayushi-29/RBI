@@ -226,3 +226,33 @@ as gold — or even as draft. Both candidates need a human to read the actual ga
 Master Direction text (not secondary commentary) and write down the verbatim clause text and
 dates, the same rigor D-006/D-009 applied to every other obligation in this catalog, before
 either can become a real draft item.
+
+## Candidate 3 (checked, not found): paragraph 40(e)/44(5) first-transaction rule vs. paragraph 44(a)/48 foreign-student remittance cap
+
+**Checked 2026-11-22, closed as a negative result, same session as D-020.** The lead: RBI KYC's
+non-face-to-face onboarding rule requires an account's *first* transaction to be a domestic
+KYC-complied credit (paragraph 40(e) in the 2016 Direction; confirmed renumbered to **paragraph
+44(5)** in the 2025 Commercial Banks successor, same substance: *"First transaction in such
+accounts shall be a credit from existing KYC-complied bank account of the customer."*). Separately,
+the foreign-students clause (old paragraph 44(a), confirmed renumbered to **paragraph 48(1)/(3)**)
+*permits* a foreign student's account to receive foreign remittances up to USD 1,000 pending
+local-address verification. If a foreign student's first-ever transaction were a foreign
+remittance, these would appear to clash.
+
+**Why it's not a Conflict, on the text actually found:**
+- Paragraph 48's foreign-remittance allowance is permissive ("may receive"), not a requirement
+  that the first transaction specifically be a foreign remittance — the two rules can coexist
+  (first transaction = domestic credit as required by 44(5); subsequently, capped foreign
+  remittances are also allowed during the 30-day window).
+- Paragraph 48 describes a bank-run procedure for opening a foreign student's account, which
+  reads as a different (likelier in-person) onboarding path than the "non-face-to-face" trigger
+  condition that activates paragraph 44(5) in the first place — so the two clauses' trigger
+  conditions may not even overlap in the typical case.
+- Checked for a stated cross-reference either direction in the live Commercial Banks 2025 text:
+  none found.
+- **Caveat:** this check used `id=13141` (the correct current source, not the dead `id=11566`
+  found in D-020) via WebFetch, so same AI-paraphrase caveat as D-018 applies — not a verbatim
+  primary-text pull.
+
+Kept here as a worked, closed lead (same convention as Candidate 2) so the next research pass
+doesn't re-tread it.
