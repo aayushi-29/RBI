@@ -191,3 +191,41 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   results from this candidate. The benchmark's zero-Conflict gap remains open — back to needing
   either Candidate 1's resolution or a new Candidate 3.
 - **Status:** closed (negative result).
+
+## D-015: the 2016 RBI KYC Master Direction has been repealed — new data-currency alert (2026-11-22)
+
+- **Context:** while self-verifying Candidate 1 against primary RBI text (rather than relying on
+  the obligation record's paraphrase), the assistant found that the 2016 KYC Master Direction
+  (DBR.AML.BC.No.81/14.01.001/2015-16) every `RBI-KYC-*` obligation cites as its source
+  instrument — 90 of 127 benchmark items via the `rbi_kyc` scenario tag — has been **repealed**,
+  effective 28 November 2025, and replaced by separate entity-specific 2025 KYC Directions
+  (Commercial Banks, Small Finance Banks, Payments Banks, Rural Co-operative Banks, at least).
+- **Primary-source confirmation:** RBI notification RBI/2025-26/101 (28 Nov 2025): "The Reserve
+  Bank has, today, repealed the RBI Master Direction DBR.AML.BC.No.81/14.01.001/2015-16 dated
+  February 25, 2016 (as updated from time to time) with immediate effect." Corroborated by
+  independent secondary commentary (taxguru.in) and by each successor direction's own "Chapter
+  XI – Repeal and Other Provisions" section.
+- **A concrete drift already found:** the small-account carve-out, cited by the catalog and by
+  Candidate 1's research as "paragraph 23 of Chapter VI," is "paragraph 28 of Chapter VI" in the
+  2025 Small Finance Banks and Payments Banks successor directions — same substance, renumbered.
+- **Consequences:** new `docs/DATA_CURRENCY_ALERT.md` records the finding, what's confirmed vs.
+  not yet checked, and a scoped recommendation (re-verify the 32 benchmark items dated
+  `2026-08-01`, which postdate the repeal, against the correct entity-specific 2025 successor
+  first). This does not change any existing gold label — the items dated `2025-09-01` (87 of
+  127) predate the repeal and the 2016 Direction genuinely was in force on that reference date
+  for them. Nothing here is asserted as a confirmed error in the gold benchmark, only a
+  currency risk that needs the specific check `docs/DATA_CURRENCY_ALERT.md` describes.
+- **Status:** open — flagged, not yet acted on.
+
+## D-016: Candidate 1 leans toward "not a Conflict," pending final sign-off (2026-11-22)
+
+- **Context:** self-verification against primary RBI text (triggered by D-015's research) found
+  paragraph 2(a)'s actual applicability text and confirmed the small-account carve-out's
+  wording. Substantively, "Small Accounts" are a distinct relaxed-KYC category under the PMLA
+  Rules with their own renewal mechanism, separate from ordinary periodic KYC updation.
+- **Assessment:** this supports Candidate 1 resolving as a genuine exemption (outcome 1 in
+  `docs/CONFLICT_CANDIDATES.md`'s original three-way branch), not a Conflict (outcome 3) — but
+  this is the assistant's own reasoned reading of primary text, explicitly not a substitute for
+  human legal review, and should be re-checked against the correct 2025 successor direction per
+  D-015 before being treated as final.
+- **Status:** open — leaning assessment recorded, not finalized.

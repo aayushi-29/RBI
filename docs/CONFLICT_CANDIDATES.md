@@ -34,10 +34,36 @@ resolve three ways once confirmed:
    there's a real window where both are in force with no stated precedence → genuine `Conflict`,
    dated to that window only.
 
-**Next step for a human annotator:** read paragraph 2's proviso and paragraph 38(e) directly in
-the current consolidated RBI KYC Master Direction (URL already in the obligation record) and
-settle which of the three outcomes above applies. This closes a real open question already
-flagged in the data — it isn't inventing a new one.
+**Research update (2026-11-22, assistant self-verification against primary RBI text — not a
+substitute for the two-person gold process, same tier as D-005's "assistant_solo_refetch"):**
+fetched the actual KYC Master Direction text rather than relying on the obligation record's own
+paraphrase. Confirmed:
+- Paragraph 2(a)'s actual text: *"The provisions of these Directions shall apply to every
+  entity regulated by Reserve Bank of India... except where specifically mentioned otherwise."*
+  No proviso attached directly to paragraph 2 itself in the current consolidated text found.
+- The small-account carve-out is real and verified: *"Provided this rule shall not apply to
+  'small accounts' referred to in Section 23 of Chapter VI"* — found in RBI circular text
+  (NotificationUser.aspx?Id=11261) discussing the general applicability rule, consistent with
+  the catalog's framing.
+- Substantively, "Small Accounts" exist under the PMLA Rules specifically as a *relaxed-KYC*
+  category (no OVD required, capped balances/turnover, 12-month initial validity) — a different
+  renewal mechanism from ordinary periodic KYC updation. That supports reading outcome **1**
+  above (the carve-out genuinely exempts small accounts from the ordinary periodic-update notice
+  duty, because small accounts are on their own separate renewal track) as more likely correct
+  than outcome 3 (genuine Conflict) — but this is the assistant's own reasoned interpretation of
+  the primary text, not a legal-reviewer's adjudication, and is explicitly not gold-equivalent.
+- **This research also surfaced something bigger than the Candidate 1 question itself:** the
+  2016 KYC Master Direction these paragraph numbers refer to has been repealed effective 28
+  November 2025 and replaced by separate entity-specific 2025 KYC Directions with renumbered
+  paragraphs (confirmed: the small-account carve-out is now "paragraph 28," not paragraph 23, in
+  the Small Finance Banks and Payments Banks successor directions). See the new
+  `docs/DATA_CURRENCY_ALERT.md` — this affects re-verifying Candidate 1 against the *correct*,
+  currently-live instrument, not just the question of which paragraph governs which.
+
+**Verdict on Candidate 1, pending final human sign-off:** leans toward outcome 1 (genuine
+exemption, not Conflict) based on the substantive reading above — but should be re-checked
+against whichever 2025 entity-specific direction actually governs this obligation's modeled
+entity type before being finalized either way, per `docs/DATA_CURRENCY_ALERT.md`.
 
 ## Candidate 2: CLOSED — not a genuine Conflict (owner-confirmed 2026-11-22)
 
