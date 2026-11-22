@@ -125,3 +125,28 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
 - **Stale-doc correction:** `docs/EVALUATION_NEXT_STEPS.md` still told readers (as of this review) that a second independent annotator pass was a future step. It was not — D-007/D-008/D-009 and `docs/PENDING_TWO_PERSON_VERIFICATION.txt` already recorded that pass as complete on 2026-10-21. The file was never updated to match after D-009 landed. Corrected to state the real current status and point at the actual next gate (breaking the circularity caveat), per D-009's own "Consequences" note.
 - **What this does NOT do:** it does not add any new benchmark item, obligation, or gold label, and it does not mark anything `gold_verified`. Adding genuine `Conflict` examples (so that label stops being zero-support for a real reason, not a metrics patch) requires the same two-independent-human-annotator + source-adjudication process as D-007–D-009, which this branch does not have authority to simulate — consistent with the D-005 decision that the assistant will not reuse annotator fields to fake independence that does not exist.
 - **Status:** merged to this branch, pending human review before merge to `main`.
+
+## D-012: Owner-corrected legal reading of the Conflict Candidate 2 regulation structure (2026-11-22)
+
+- **Context:** `docs/CONFLICT_CANDIDATES.md`'s first draft of Candidate 2 (SEBI LODR vs. RBI bank
+  governance) flagged an unresolved "loose end": whether Regulation 15(2)'s opening words carried
+  a general statutory carve-out separate from the proviso deleted in 2021, based on reading a
+  secondhand `indiankanoon.org` excerpt rather than the primary notification.
+- **Correction:** the project owner identified this as wrong on two points, citing the regulation's
+  actual structure and the primary notification number from memory/expertise: (1) Regulation
+  15(2)'s opening words only create the small-cap/SME-exchange exemptions, with no general
+  carve-out; the carve-out language belongs to a separate proviso under clause (b); (2) that
+  proviso was omitted effective 2021-09-01 under the SEBI (LODR) (Second Amendment) Regulations,
+  2021, Notification No. SEBI/LAD-NRO/GN/2021/22 dated 5 May 2021 — so there is no surviving
+  general carve-out to reconcile, and the loose end does not exist.
+- **Verification:** the assistant then located a hosted copy of the actual gazette notification
+  text (ca2013.com's copy of SEBI/LAD-NRO/GN/2021/22) confirming verbatim: "under clause (b), the
+  proviso shall stand omitted with effect from September 01, 2021." This is primary-source
+  confirmation of the owner's correction, not merely a second secondary source.
+- **Consequences:** `docs/CONFLICT_CANDIDATES.md` updated to remove the resolved loose end and
+  cite the primary notification. Candidate 2 is materially stronger than before — its main open
+  risk is closed — but it remains a research lead, not a draft or gold benchmark item. The
+  omitted proviso's own pre-2021 text still needs to be located and quoted verbatim before any
+  item is drafted.
+- **Status:** open — Candidate 2's remaining verification steps (verbatim proviso text, current
+  RBI/LODR clause text, confirming no later precedence rule was reintroduced) are unstarted.

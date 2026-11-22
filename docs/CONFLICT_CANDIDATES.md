@@ -73,21 +73,40 @@ stated precedence rule that used to resolve this was deleted with, per the same 
 replacement rule announced. If that account holds up against the primary gazette text, this is
 close to a textbook `Conflict`: in force, contradictory, no documented tie-breaker, dated.
 
-**What is NOT yet done, and must be before this becomes a draft item, let alone gold:**
-- Pull the actual 2021 SEBI (LODR) (Amendment) Regulations gazette notification and quote
-  Regulation 15(2)(b)'s proviso exactly as it read before deletion, and confirm there is no
-  successor precedence clause elsewhere in the current (2026) consolidated LODR text — the
-  current indiankanoon.org excerpt of Regulation 15(2)'s *opening* words ("...shall apply to the
-  extent that it does not violate their respective statutes and guidelines or directives issued
-  by the relevant authorities") looks like it might still carry some general carve-out distinct
-  from the deleted 15(2)(b) proviso. **These two things need to be reconciled by someone reading
-  the full current regulation text side by side with the pre-2021 text — this document does not
-  resolve that, and getting it wrong in either direction would misclassify the item.**
-- Identify the exact current RBI clause (2025 Master Direction id=13161, or whichever is live
-  when drafted) and the exact current LODR Regulation 17/18 text, both verbatim, both dated.
-- Confirm the entity type this actually bites for (a bank that is both RBI-regulated *and* a
-  SEBI-listed entity under LODR — e.g. a listed public-sector or private-sector bank) and that
-  no other RBI/SEBI circular has since re-introduced a precedence rule between 2021 and now.
+**Loose end from the first draft of this document — now resolved, by the project owner's own
+review (2026-11-22), the same role she played in D-006:** the first version of this document
+flagged uncertainty about whether Regulation 15(2)'s *opening* words carried a general
+statutory/regulator carve-out distinct from the deleted 15(2)(b) proviso, based on an
+`indiankanoon.org` excerpt. That was wrong on both counts, and the owner corrected it with the
+exact regulation structure:
+- Regulation 15(2)'s opening words only create the small-cap (≤₹10 crore paid-up equity /
+  ≤₹25 crore net worth) and SME-exchange exemptions — **no general statutory carve-out at all.**
+  The "...shall apply to the extent that it does not violate their respective statutes..."
+  language the first draft quoted belongs to the separate proviso under clause (b), not the
+  opening words.
+- That clause-(b) proviso is exactly what was omitted, effective 2021-09-01, under the
+  **Securities and Exchange Board of India (Listing Obligations and Disclosure Requirements)
+  (Second Amendment) Regulations, 2021** (Notification No. SEBI/LAD-NRO/GN/2021/22, dated
+  5 May 2021). Primary-source confirmation (gazette notification text, not secondary commentary):
+  *"under clause (b), the proviso shall stand omitted with effect from September 01, 2021."*
+  (hosted at ca2013.com's copy of the notification). This matches, and upgrades to primary-source
+  status, the vinodkothari.com secondary-source account already cited above.
+- So there is no surviving general carve-out in Regulation 15(2) for private-sector banks today
+  — the specific reconciliation provisos that do remain (e.g. Regulation 17(1C)'s
+  shareholder-approval proviso, or provisos retained for public-sector banks specifically) are
+  narrower and don't cover this case. Both LODR and RBI's governance regime apply concurrently,
+  with no general tie-breaker.
+
+**What is still NOT done, and must be before this becomes a draft item, let alone gold:**
+- Quote the omitted proviso's own exact pre-2021 text (not yet located verbatim in primary form —
+  only its existence and omission date are primary-confirmed) and the exact current RBI clause
+  (2025 Master Direction id=13161, or whichever is live when drafted) and current LODR
+  Regulation 17/18 text, all verbatim, all dated.
+- Confirm the entity type this actually bites for (a private-sector bank that is both
+  RBI-regulated *and* SEBI-listed under LODR) and that no other RBI/SEBI circular has since
+  reintroduced a precedence rule between 2021 and now.
+- This is now a materially stronger candidate than when first drafted — the structural/substantive
+  question that was the main open risk is resolved — but it is still not a benchmark item.
 
 ## What this branch did and didn't do
 
