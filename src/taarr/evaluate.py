@@ -55,5 +55,18 @@ def score(items, predictions):
     for label in LABELS:
         tp=cm[label][label]; fp=sum(cm[a][label] for a in LABELS if a!=label); fn=sum(cm[label][b] for b in LABELS if b!=label)
         p=tp/(tp+fp) if tp+fp else 0.0; r=tp/(tp+fn) if tp+fn else 0.0; f=2*p*r/(p+r) if p+r else 0.0
-        per[label]={'precision':round(p,6),'recall':round(r,6),'f1':round(f,6),'support':sum(cm[label].values())}; f1s.append(f)
-    return {'status':'ok' if matched else 'unavailable','gold_n':len(gold),'matched_n':len(matched),'coverage':round(len(matched)/len(gold),6),'accuracy':round(sum(cm[x][x] for x in LABELS)/len(matched),6) if matched else None,'macro_f1':round(sum(f1s)/4,6) if matched else None,'per_class':per,'confusion_matrix':cm,'missing_prediction_ids':missing,'prediction_ids_not_in_gold':extra,'note':'Metrics use matched predictions only; report coverage and missing IDs.'}
+        support=sum(cm[label].values())
+        per[label]={'precision':round(p,6),'recall':round(r,6),'f1':round(f,6),'support':support}; f1s.append(f)
+    # NOTE (see docs/DECISIONS.md and the "1st Round of Changes" branch): macro_f1 below
+    # averages over every label in LABELS (the full four-outcome design space), including
+    # any label with zero gold support in this run. A zero-support label scores f1=0.0 by
+    # this function's own precision/recall convention above, which silently drags the
+    # average down -- it was previously hidden by a hardcoded "/4" divisor that didn't even
+    # track len(LABELS). That is why a run with 100% accuracy on every *present* class can
+    # still report macro_f1=0.75: it is penalizing the benchmark for not yet containing an
+    # outcome (e.g. "Conflict"), not penalizing the resolver's correctness on data it has
+    # actually seen. Both numbers are reported below so neither reading is hidden.
+    zero_support_classes=sorted(label for label in LABELS if per[label]['support']==0)
+    present_f1s=[per[label]['f1'] for label in LABELS if per[label]['support']>0]
+    macro_f1_excl_zero_support=round(sum(present_f1s)/len(present_f1s),6) if present_f1s else None
+    return {'status':'ok' if matched else 'unavailable','gold_n':len(gold),'matched_n':len(matched),'coverage':round(len(matched)/len(gold),6),'accuracy':round(sum(cm[x][x] for x in LABELS)/len(matched),6) if matched else None,'macro_f1':round(sum(f1s)/len(LABELS),6) if matched else None,'macro_f1_excl_zero_support':macro_f1_excl_zero_support,'zero_support_classes':zero_support_classes,'per_class':per,'confusion_matrix':cm,'missing_prediction_ids':missing,'prediction_ids_not_in_gold':extra,'note':'Metrics use matched predictions only; report coverage and missing IDs. macro_f1 includes zero-support labels (see zero_support_classes); macro_f1_excl_zero_support excludes them.'}
