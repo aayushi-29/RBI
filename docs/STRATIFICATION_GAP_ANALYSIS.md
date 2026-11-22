@@ -67,12 +67,16 @@ all (train/test are the same 60 obligations).
    untested, and (per D-011 on this branch) the reason macro-F1 reads 0.75 instead of 1.0.
    See `docs/CONFLICT_CANDIDATES.md` (added on this branch) for real candidate scenarios
    worth a human adjudicator's attention under D-004's rule.
-2. **Regulatory scope is two instruments.** RBI KYC Master Direction and SEBI LODR only.
+2. **Regulatory scope was two instruments.** RBI KYC Master Direction and SEBI LODR only.
    The project's own novelty claim is about RBI *and* SEBI applicability reasoning generally;
-   a reviewer will reasonably ask whether the engine generalizes beyond KYC/LODR. Candidate
-   next instruments to source obligations from (not yet done — needs the same D-006-style
-   source-text verification before any item can be drafted against them):
-   - RBI Master Direction on NBFCs (different entity-type/threshold shape than KYC)
+   a reviewer will reasonably ask whether the engine generalizes beyond KYC/LODR. **Update
+   (2026-11-22, D-019):** a third instrument is now in the catalog —
+   `RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT`, from the RBI (NBFCs – Responsible Business
+   Conduct) Directions, 2025 — but it is a single-pass research lead
+   (`verification_status: "assistant_single_pass_webfetch"`), not yet human-verified, and no
+   benchmark item is built from it yet. 3 instruments is still thin. Candidate further
+   instruments (not yet done — needs the same D-006-style source-text verification before any
+   item can be drafted against them):
    - RBI FEMA-related reporting obligations (different temporal/amendment pattern)
    - SEBI (Mutual Funds) Regulations or SEBI (ICDR) — a second SEBI instrument besides LODR,
      to show the engine isn't LODR-specific

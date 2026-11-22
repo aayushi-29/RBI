@@ -290,3 +290,34 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   research documentation only, same as D-012/D-013/D-016 before it.
 - **Status:** open — reopened, contradicts D-016's same-day leaning, needs human verification
   against primary PDF text before either direction is finalized.
+
+## D-019: added the catalog's first third-instrument obligation (2026-11-22)
+
+- **Context:** gap #2 in `docs/STRATIFICATION_GAP_ANALYSIS.md` — the whole catalog (60
+  obligations) was sourced from only 2 instruments (`RBI-KYC-2016`/`RBI-KYC-MD-2016` and
+  `SEBI-LODR-2015`), which looks thin for a project whose novelty claim rests partly on
+  cross-instrument reasoning.
+- **What was added:** `RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT`, from the Reserve Bank of India
+  (Non-Banking Financial Companies – Responsible Business Conduct) Directions, 2025
+  (`RBI/DOR/2025-26/362`, dated 2025-11-28) — a genuinely different RBI instrument (NBFC conduct
+  regulation, not KYC/AML) from either existing one. Clause: paragraph 12, Chapter III (Responsible
+  Lending Conduct), Fair Practices Code for NBFCs — "An NBFC shall devise a system of giving
+  acknowledgement for receipt of all loan applications." Chosen deliberately as a simple,
+  single-condition `must` obligation with no exemptions or dependencies, to keep the first
+  cross-instrument addition easy to verify independently.
+- **New fact registered:** `is_nbfc` added to `data/facts/fact_registry.json` (organisation group)
+  — the closed fact list `tests/test_fact_registry.py` enforces.
+- **Verification tier, stated honestly:** `verification_status: "assistant_single_pass_webfetch"`
+  — a new, distinct value, deliberately NOT `"source_text_human_confirmed"` (the project's own
+  convention for an owner-verified pass, D-006) and NOT `gold_verified`. This is a single
+  assistant WebFetch pass against the live official RBI page (`id=12942`), nothing more. Needs a
+  human source-text check (ideally the actual PDF) before any benchmark item is drafted from it.
+- **Side effects, all mechanical:** catalog grew 60 → 61 obligations. Four tests had hardcoded
+  counts (`test_catalog_grew_to_sixty_obligations`, `test_pilot_catalog_loads_both_obligations_...`,
+  `test_checklist_covers_every_obligation`, `test_api_endpoints`) and were updated to 61/44 with a
+  comment pointing here — not silently bumped. Full suite re-run: 242 passed.
+- **What this does NOT do:** no benchmark item, draft or gold, is built from this obligation yet.
+  No existing obligation, exemption, or gold label is touched.
+- **Status:** added to the catalog as a single-pass research lead, needs human verification;
+  closes part of gap #2 but 3 instruments is still thin against the 100–200 item stratification
+  target's implied breadth — more instruments and benchmark items are still open work.

@@ -98,7 +98,7 @@ def test_api_endpoints(monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     reply = json.dumps({"facts": [{"key": "is_rbi_regulated_entity", "value": "true", "evidence": "We are an NBFC"}]})
     c = TestClient(create_app(http_client=_Client(reply)))
-    assert len(c.get("/api/v1/facts").json()["facts"]) == 43
+    assert len(c.get("/api/v1/facts").json()["facts"]) == 44  # +is_nbfc, see D-019
     assert c.post("/api/v1/facts/extract", json={"description": DESC}).status_code == 422
     ok = c.post("/api/v1/facts/extract", json={"description": DESC, "api_key": "k"})
     assert ok.status_code == 200 and ok.json()["facts"] == {"is_rbi_regulated_entity": True}
@@ -121,8 +121,9 @@ def _client(monkeypatch):
 def test_checklist_covers_every_obligation(monkeypatch):
     c = _client(monkeypatch)
     body = c.post(CHECKLIST_URL, json={"entity_profile": {}, "reference_date": "2025-07-01"}).json()
-    assert body["total"] == 60
-    assert sum(body["counts"].values()) == 60
+    # 2026-11-22: grew to 61 with RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT (D-019).
+    assert body["total"] == 61
+    assert sum(body["counts"].values()) == 61
     # With no facts supplied, nothing is silently assumed false.
     assert body["counts"]["need_more_info"] > 0
 

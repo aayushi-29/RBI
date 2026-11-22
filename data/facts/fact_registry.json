@@ -15,6 +15,12 @@
    "question": "Is your organisation regulated by the RBI (for example a bank or an NBFC)?"
   },
   {
+   "key": "is_nbfc",
+   "group": "organisation",
+   "type": "boolean",
+   "question": "Is your organisation a Non-Banking Financial Company (NBFC)?"
+  },
+  {
    "key": "uses_vcip_onboarding",
    "group": "organisation",
    "type": "boolean",
