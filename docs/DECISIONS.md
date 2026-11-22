@@ -422,3 +422,42 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
 - **Status:** done — all 34 clause mappings confirmed and applied. Individual verbatim-text
   confirmation against the actual PDF (versus this session's WebFetch passes) is still open,
   lower-priority work for whoever reviews this on primary-source grounds.
+
+## D-022: added a second new instrument — FEMA FC-GPR reporting timeline (2026-11-22)
+
+- **Context:** continuing gap #2 (instrument diversity) past D-019's first addition (RBI NBFC
+  conduct). `docs/STRATIFICATION_GAP_ANALYSIS.md` specifically suggested RBI FEMA reporting
+  obligations as a candidate: a different legal basis and a different temporal/amendment
+  pattern (a fixed post-event deadline tied to a transaction date) from the existing
+  periodic-review/applicability-threshold rules.
+- **What was added:** `RBI-FEMA-FCGPR-REPORTING-TIMELINE` — an Indian company that allots
+  shares/convertible instruments to a non-resident investor must file Form FC-GPR with RBI
+  within 30 days of allotment. Legal basis: FEMA, 1999, via the Foreign Exchange Management
+  (Non-Debt Instruments) Rules, 2019, operationalized through the Master Direction – Foreign
+  Investment in India (RBI/FED/2017-18/60).
+- **Verification tier — explicitly lower than D-019:** `verification_status:
+  "assistant_single_pass_websearch"` (distinct from D-019's `"...webfetch"`, and further from
+  `"source_text_human_confirmed"`). The live Master Direction page only served its cover
+  letter/TOC to the fetch tool, not the PDF body, so **the exact in-document paragraph number
+  was not confirmed against primary text** — `clause_id` is a descriptive slug
+  (`fc-gpr-reporting-timeline`), not a confirmed paragraph number, unlike every other obligation
+  in this catalog. The 30-day/FC-GPR substance itself is corroborated by a genuine RBI PDF
+  fragment (a 2014-era A.P. (DIR Series) circular, not the current consolidated Direction) plus
+  five independent secondary sources (taxguru.in, caclubindia.com, globallawexperts.com, a
+  Deloitte India PDF), all agreeing on the figure and form name — but that is substance
+  corroboration, not a primary-paragraph citation. Flagged clearly in the obligation's own
+  `notes` field so it is not mistaken for the same tier as other catalog entries.
+- **New facts registered:** `is_indian_company` and `allotted_shares_to_nonresident` added to
+  `data/facts/fact_registry.json`.
+- **Side effects, all mechanical:** catalog grew 61 → 62 obligations. Updated the same four
+  tests touched by D-019 (`test_catalog_grew_to_sixty_obligations`,
+  `test_pilot_catalog_loads_both_obligations_with_their_exemptions`,
+  `test_checklist_covers_every_obligation`, `test_api_endpoints`) to 62/46, each with a comment
+  pointing here. Full suite: 242 passed. `python -m taarr.dataset validate` unaffected (no
+  benchmark item built from this obligation yet).
+- **What this does NOT do:** no benchmark item, draft or gold, is built from this obligation.
+  No existing obligation, exemption, or gold label is touched.
+- **Status:** added as a lower-confidence research lead than D-019 — needs a human to actually
+  open the primary Master Direction PDF and find the real paragraph number before this is
+  treated as equivalent to the rest of the catalog, let alone drafted into a benchmark item.
+  4 instruments now in the catalog (still short of a broad stratification target, but moving).

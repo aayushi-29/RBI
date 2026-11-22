@@ -50,7 +50,7 @@ PARA17_TARGET = "RBI-KYC-PARA17-OTP-EKYC-BALANCE-CAP"
 
 def test_pilot_catalog_loads_both_obligations_with_their_exemptions():
     catalog = load_catalog(CATALOG_PATH)
-    assert catalog.obligation_count == 61  # see D-019
+    assert catalog.obligation_count == 62  # see D-019/D-022
     version = catalog.obligations[TARGET].versions[0]
     assert len(version.exemptions) == 1
     assert version.exemptions[0].relation_id == "RBI-KYC-PARA2-SMALL-ACCOUNT-PROVISO"
@@ -387,4 +387,4 @@ def test_catalog_grew_to_sixty_obligations():
     # obligation from a third instrument (RBI NBFC Responsible Business Conduct Directions,
     # 2025), added to start closing the instrument-diversity gap in
     # docs/STRATIFICATION_GAP_ANALYSIS.md. Test name kept for history; see docs/DECISIONS.md D-019.
-    assert catalog.obligation_count == 61
+    assert catalog.obligation_count == 62  # see D-022

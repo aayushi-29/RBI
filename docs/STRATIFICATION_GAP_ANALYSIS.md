@@ -70,16 +70,17 @@ all (train/test are the same 60 obligations).
 2. **Regulatory scope was two instruments.** RBI KYC Master Direction and SEBI LODR only.
    The project's own novelty claim is about RBI *and* SEBI applicability reasoning generally;
    a reviewer will reasonably ask whether the engine generalizes beyond KYC/LODR. **Update
-   (2026-11-22, D-019):** a third instrument is now in the catalog —
-   `RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT`, from the RBI (NBFCs – Responsible Business
-   Conduct) Directions, 2025 — but it is a single-pass research lead
-   (`verification_status: "assistant_single_pass_webfetch"`), not yet human-verified, and no
-   benchmark item is built from it yet. 3 instruments is still thin. Candidate further
-   instruments (not yet done — needs the same D-006-style source-text verification before any
-   item can be drafted against them):
-   - RBI FEMA-related reporting obligations (different temporal/amendment pattern)
-   - SEBI (Mutual Funds) Regulations or SEBI (ICDR) — a second SEBI instrument besides LODR,
-     to show the engine isn't LODR-specific
+   (2026-11-22, D-019 and D-022):** two more instruments are now in the catalog —
+   `RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT` (RBI NBFC Responsible Business Conduct
+   Directions, 2025) and `RBI-FEMA-FCGPR-REPORTING-TIMELINE` (FEMA/NDI Rules, via the Master
+   Direction – Foreign Investment in India) — both single-pass research leads
+   (`verification_status` tiers below the catalog's `"source_text_human_confirmed"` norm,
+   D-022 lower still since its exact paragraph number isn't confirmed), not yet human-verified,
+   and no benchmark item is built from either yet. 4 instruments total now — better, still short
+   of a broad stratification claim. Remaining candidate: a second SEBI instrument (Mutual Funds
+   Regulations or ICDR), to show the engine isn't LODR-specific on the SEBI side too. Not yet
+   done — needs the same D-006-style source-text verification before any item can be drafted
+   against it.
 3. **Amendment-sensitive reasoning is tested once in the gold benchmark.** For a project whose
    algorithmic novelty claim is explicitly "temporal validity" and "which version of a clause
    applied," 1/127 items actually exercising a pre/post-amendment date split is a real weakness

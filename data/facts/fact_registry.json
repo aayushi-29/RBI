@@ -21,6 +21,18 @@
    "question": "Is your organisation a Non-Banking Financial Company (NBFC)?"
   },
   {
+   "key": "is_indian_company",
+   "group": "organisation",
+   "type": "boolean",
+   "question": "Is your organisation an Indian company?"
+  },
+  {
+   "key": "allotted_shares_to_nonresident",
+   "group": "transaction",
+   "type": "boolean",
+   "question": "Has your company allotted shares or convertible instruments to a person resident outside India?"
+  },
+  {
    "key": "uses_vcip_onboarding",
    "group": "organisation",
    "type": "boolean",
