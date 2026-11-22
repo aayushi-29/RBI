@@ -12,6 +12,24 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Guard against committed secrets
+        run: |
+          set -eu
+          # .env must never be tracked (real keys live only in the git-ignored .env).
+          if git ls-files | grep -E '^\.env$|^\.env\.[^.]*$' | grep -v '^\.env\.example$'; then
+            echo "A .env file is tracked in git history. Remove it and rotate any key it held." >&2
+            exit 1
+          fi
+          # No live-looking Gemini key pattern anywhere in tracked files.
+          if git grep -nE 'AIza[0-9A-Za-z_-]{30,}' -- . ':(exclude).github/workflows/ci.yml'; then
+            echo "A string matching a Gemini API key pattern is committed. Remove it and rotate the key." >&2
+            exit 1
+          fi
+          # .env.example must keep GEMINI_API_KEY empty, never a real-looking value.
+          if grep -E '^GEMINI_API_KEY=.+' .env.example; then
+            echo ".env.example must not set a real GEMINI_API_KEY value." >&2
+            exit 1
+          fi
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

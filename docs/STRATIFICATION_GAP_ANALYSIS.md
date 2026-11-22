@@ -1,0 +1,102 @@
+# Stratification gap analysis — branch `1st-Round-of-Changes`
+
+Purpose: quantify, from the actual data (not estimates), how far `data/benchmark/benchmark.jsonl`
+is from the 100–200 item stratified target in `docs/DATASET_SPEC.md` / `docs/RESEARCH_EVALUATION.md`,
+and what adding real items would require. This is a gap report, not new gold data — closing
+these gaps means new `draft` items going through the same D-007–D-009 two-annotator +
+adjudication process, which needs real human annotators (see D-005's rejection of simulated
+independence).
+
+## 1. Current coverage (measured 2026-11-22, n=127, all gold_verified)
+
+**By outcome:**
+
+| Outcome | Count | Share |
+|---|---|---|
+| Not applicable | 61 | 48.0% |
+| Applicable | 60 | 47.2% |
+| Indeterminate | 6 | 4.7% |
+| **Conflict** | **0** | **0.0%** |
+
+**By regulation area (scenario_tags):**
+
+| Tag | Count |
+|---|---|
+| rbi_kyc | 90 |
+| sebi_lodr | 37 |
+
+No other instrument is represented at all — the whole benchmark is two regulation families.
+
+**By mechanism tested (scenario_tags), the dimensions the spec says to stratify on:**
+
+| Dimension | Count | Note |
+|---|---|---|
+| applicability_positive | 59 | well covered |
+| applicability_negative | 58 | well covered |
+| missing_entity_fact / abstention | 6 each | thin |
+| numeric_threshold | 6 | thin |
+| amendment_sensitive | 1 | **near-zero** — temporal/version reasoning (the engine's headline feature) is tested once |
+| exemption_positive | 2 | thin |
+| exemption_unknown | 1 | thin |
+| pep, vcip, risk_categorization, unconditional_duty | 2 each | thin, single-topic |
+| entity_scope_positive / negative | 1 each | thin |
+| small_account, pan_form60, balance_cap | 1–3 each | thin |
+
+**By obligation:** 60 distinct `target_obligation_id` values across 127 items — i.e. every item
+maps to a different obligation on average ~2.1x, so there is close to no repeated-obligation
+testing under different entity profiles for most obligations, and no held-out obligation set at
+all (train/test are the same 60 obligations).
+
+**By reference date:** 87 of 127 items (68%) use `2025-09-01`; another 32 use `2026-08-01`. Only
+8 items (6%) use any other date. Amendment-sensitive temporal reasoning needs date diversity
+*around specific amendment effective dates*, not just two bulk dates.
+
+## 2. What the spec actually asks for
+
+`docs/RESEARCH_EVALUATION.md` says to stratify 100–200 items across:
+- pre-amendment and post-amendment dates (we have 1 amendment_sensitive item — far short)
+- distinct entity types and condition thresholds (concentrated in 2 instruments)
+- true and false applicability predicates (met — 59/58 is balanced)
+- intentionally missing required facts → Indeterminate (6 items — thin but present)
+- source-grounded exemptions and dependencies (3 items total — thin)
+- **genuine unresolved conflicts, only where official evidence supports them** (0 items)
+
+## 3. Concrete gaps, ranked by priority
+
+1. **Zero Conflict examples.** This is the single biggest gap — one whole outcome class
+   untested, and (per D-011 on this branch) the reason macro-F1 reads 0.75 instead of 1.0.
+   See `docs/CONFLICT_CANDIDATES.md` (added on this branch) for real candidate scenarios
+   worth a human adjudicator's attention under D-004's rule.
+2. **Regulatory scope is two instruments.** RBI KYC Master Direction and SEBI LODR only.
+   The project's own novelty claim is about RBI *and* SEBI applicability reasoning generally;
+   a reviewer will reasonably ask whether the engine generalizes beyond KYC/LODR. Candidate
+   next instruments to source obligations from (not yet done — needs the same D-006-style
+   source-text verification before any item can be drafted against them):
+   - RBI Master Direction on NBFCs (different entity-type/threshold shape than KYC)
+   - RBI FEMA-related reporting obligations (different temporal/amendment pattern)
+   - SEBI (Mutual Funds) Regulations or SEBI (ICDR) — a second SEBI instrument besides LODR,
+     to show the engine isn't LODR-specific
+3. **Amendment-sensitive reasoning is tested once.** For a project whose algorithmic novelty
+   claim is explicitly "temporal validity" and "which version of a clause applied," 1/127 items
+   actually exercising a pre/post-amendment date split is a real weakness a reviewer will flag
+   before worrying about raw item count.
+4. **Exemptions/dependencies are tested on 3 items.** The "exemptions, dependencies" novelty
+   claim needs more than 2–3 examples to look like a tested mechanism rather than a demo.
+5. **Item count itself (127) is already inside the 100–200 target range** — so the priority is
+   not "add more of the same," it's fixing the stratification shape above. Padding with more
+   rbi_kyc applicability_positive/negative items would make the number bigger without closing
+   any of the gaps a reviewer would actually probe.
+
+## 4. What this branch does and doesn't do about it
+
+**Done on this branch:** this gap analysis, and `docs/CONFLICT_CANDIDATES.md` identifying
+candidate Conflict scenarios for human review.
+
+**Not done, and why:** drafting and gold-verifying new items for gaps 2–4 requires (a) sourcing
+and D-006-style human verification of new obligations from instruments not yet in the catalog,
+and (b) the full D-007–D-009 two-independent-annotator + adjudication pipeline for any new
+benchmark item. Both need real people and real source documents, not something this session can
+simulate without repeating the exact shortcut (D-005) this project already rejected. The
+actionable next step is: pick one gap above (Conflict is the highest-leverage one — see the
+candidates doc), source 3–5 real obligations/items for it, and run them through the same process
+D-007–D-009 used.
