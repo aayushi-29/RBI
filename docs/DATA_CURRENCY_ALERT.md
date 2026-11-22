@@ -141,9 +141,12 @@ untouched on purpose — that is accurate history, not a citation to fix. Valida
 load, full test suite (242), and a resolver sanity check all pass unaffected. Full detail in
 `docs/DECISIONS.md` D-020.
 
-**Still open, separate from the URL fix:** clause/paragraph numbers were not bulk-renumbered.
-Only three mappings are confirmed against the new document (38(e)→42(7), 40(e)→44(5),
-23→28, all from D-018's research). Every other `clause_id` among those 42 records still
-reflects 2016 numbering and needs individual re-verification against the Commercial Banks 2025
-text before being treated as accurate. Reference dates on existing gold items are still fine —
-that part of this finding was correctly downgraded from urgent earlier and stays downgraded.
+**Also resolved, same day (D-021):** all 34 distinct clause/paragraph numbers among those 42
+records have now been checked against the live Commercial Banks 2025 text and `clause_id`
+updated accordingly (e.g. `38(e)→42(7)`, `40(e)→44(5)`, `23→28`, plus 31 more — full table in
+D-021). Every record's `clause_id` now matches its `official_url`'s document. This surfaced one
+pre-existing catalog redundancy (two obligations describing the same real clause, `42(7)`) —
+left as-is, flagged for human judgment on whether to merge, not something this pass decides.
+Reference dates on existing gold items are still fine — that part of this finding was correctly
+downgraded from urgent earlier and stays downgraded. Remaining open work is lower-priority:
+confirming these WebFetch-sourced mappings against the actual primary-source PDF text.

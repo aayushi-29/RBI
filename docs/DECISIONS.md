@@ -379,3 +379,46 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   that document still says what the record claims is separate, unverified work.
 - **Status:** closed for the URL/instrument-identity question (owner decision executed). Clause-
   number-by-clause-number re-verification against the new document remains open, separate work.
+  **Completed same day — see D-021.**
+
+## D-021: all 34 clause numbers re-verified and updated against the 2025 successor (2026-11-22)
+
+- **Context:** D-020 explicitly left clause-number-by-clause-number re-verification as separate,
+  unstarted work. This entry is that work, done the same day.
+- **Method:** fetched the live Commercial Banks 2025 KYC Direction (`id=13141`) in batches via
+  WebFetch, matching each of the 42 affected obligation records' own `clause_text`/
+  `clause_summary` against the live document's substance (not number lookup alone), to find the
+  new paragraph number. All 34 distinct old clause_ids among those 42 records were checked;
+  every one had a substance match found. Full old→new mapping lives in
+  `scripts/renumber_kyc_clauses_d021.py`; highlights: `38(e)→42(7)`, `39→43`, `17(3)→25`,
+  `13(5)→21(5)-(6)`, `41(A)(3)→45(1)(iii)`, `18(c)(i)→27(3)(i)`, `10(1)→17(1)`, `10(2)→17(3)`,
+  `3(a)(iv)(a)(1)→5(1)(iv)(a)`, `16(b)→23(5)`, `30→33(3)`, `32→35(3)`, `5A(b)→10(2)`,
+  `37(1)→41(1)`, `12(4)→20(4)`, `38→42(1)/42(3)(ii)/42(7)` (split across sub-clauses depending
+  on which of 5 old obligations), `40(b)→44(2)`, `40(c)→44(3)`, `40(e)→44(5)`, `43(1)-(2)→47(1)`,
+  `44(a)→48(1)`, `44(c)→48(3)`, `46(a)→50(1)`, `46(b)→50(2)`, `6(d)→14(3)`, `42(6)→46(6)`,
+  `11A→19`, `13(2)→21(2)`, `18(b)(iv)→27(2)(iv)`, `18(b)(xii)→27(2)(xv)`,
+  `18(b)(vi)→27(2)(viii)-(ix)`, `14(4)→22(4)`, `49→54`.
+- **Executed via `scripts/renumber_kyc_clauses_d021.py`:** updated `clause_id` in all 42
+  `obligations.jsonl` records, and in `gold_obligations[].clause_id` in the corresponding 90
+  `benchmark.jsonl` items and 91 `draft_items.jsonl` items. Each obligation's `notes` field gets
+  a dated note recording the old clause_id, so the 2016 numbering isn't lost.
+- **Side finding, not a bug to fix:** `RBI-KYC-P38E-DUE-NOTICES` (old `38(e)`) and
+  `RBI-KYC-PARA38-ADVANCE-INTIMATION-COUNT` (old `38`'s advance-intimation sub-topic) both map to
+  the *same* real clause, `42(7)` — meaning the catalog already modeled the same underlying rule
+  as two separate obligation records before this renumbering made that visible. Pre-existing
+  catalog redundancy, not introduced here; left as-is rather than merged, since that's a judgment
+  call for the human team, not a renumbering question.
+- **Caveat, unchanged from D-018/D-020:** every mapping above came from AI-paraphrased WebFetch
+  passes (the tool's 125-character verbatim-quote limit means these are paraphrases of live
+  text), cross-checked against this catalog's own `clause_text` for substance, not a
+  pasted/human-verified primary-source excerpt. Treat this as a strong research lead, not a
+  legal-reviewer's confirmation.
+- **Verified:** `python -m taarr.dataset validate` passes on both benchmark files (127/128
+  items), `load_catalog` loads cleanly (61 obligations), full test suite (242 passed — one test,
+  `test_clause_explorer_shows_version_and_verification_status`, was updated to look up the new
+  clause id and expect `version_count == 2` given the side finding above), and resolver sanity
+  checks on two renumbered obligations return the same outcomes as before (`Applicable` in both
+  cases tried) — clause_id is metadata for citation, not resolver input, so logic is unaffected.
+- **Status:** done — all 34 clause mappings confirmed and applied. Individual verbatim-text
+  confirmation against the actual PDF (versus this session's WebFetch passes) is still open,
+  lower-priority work for whoever reviews this on primary-source grounds.
