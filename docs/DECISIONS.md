@@ -233,3 +233,29 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   human legal review, and should be re-checked against the correct 2025 successor direction per
   D-015 before being treated as final.
 - **Status:** open — leaning assessment recorded, not finalized.
+
+## D-017: drafted TAARR-DRAFT-0135, a pre-amendment negative companion item (2026-11-22)
+
+- **Context:** gap #3 in `docs/STRATIFICATION_GAP_ANALYSIS.md` — only 1 amendment-sensitive item
+  (`TAARR-DRAFT-0001`) existed in the whole 127-item benchmark.
+- **What was added:** `data/benchmark/draft_items.jsonl` gets a new item, `TAARR-DRAFT-0135`,
+  status `draft` (explicitly not `gold_verified` — it is not added to `benchmark.jsonl`). Same
+  target obligation as `TAARR-DRAFT-0001` (`RBI-KYC-P38E-DUE-NOTICES`), same entity facts, but
+  `reference_date: 2025-03-01` — before paragraph 38(e)'s 2025-06-12 insertion — with
+  `gold_outcome: "Not applicable"` on the reasoning that no version of the obligation is yet in
+  force (D-001's own `NoVersionPolicy.NOT_APPLICABLE` policy), not a missing-fact case.
+- **Verification performed:** re-confirmed the amendment date against the actual RBI notification
+  (id=12866, RBI/2025-26/51). As a sanity check only (per the same caveat D-009 itself applies to
+  its own adjudication step), ran `resolve_obligation` with the project's committed resolver
+  policy: it returns exactly `"Not applicable"` with reason `"No recorded version of this
+  obligation is in force on the reference date."` for this item's facts and date, and the
+  existing `"Applicable"` for `TAARR-DRAFT-0001`'s date — consistent, not proof.
+- **What this does NOT do:** no gold label is created or changed. This is one new draft
+  candidate in the queue, needing the same two-independent-annotator + adjudication process as
+  every other item before it could become real. `python -m taarr.dataset validate
+  data/benchmark/draft_items.jsonl` passes (128 items, structurally valid) and the full test
+  suite (242 tests) is unaffected.
+- **Note:** `python -m taarr.provenance_audit` exits 1 with pre-existing `GOLD_VERSION_NOT_VERIFIED`
+  errors on `benchmark.jsonl` — confirmed via `git stash` that this is unrelated to this change
+  and already true on the branch beforehand; not something this entry fixes.
+- **Status:** drafted, in the queue, not yet annotated.

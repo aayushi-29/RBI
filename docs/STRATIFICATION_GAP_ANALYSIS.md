@@ -76,10 +76,14 @@ all (train/test are the same 60 obligations).
    - RBI FEMA-related reporting obligations (different temporal/amendment pattern)
    - SEBI (Mutual Funds) Regulations or SEBI (ICDR) — a second SEBI instrument besides LODR,
      to show the engine isn't LODR-specific
-3. **Amendment-sensitive reasoning is tested once.** For a project whose algorithmic novelty
-   claim is explicitly "temporal validity" and "which version of a clause applied," 1/127 items
-   actually exercising a pre/post-amendment date split is a real weakness a reviewer will flag
-   before worrying about raw item count.
+3. **Amendment-sensitive reasoning is tested once in the gold benchmark.** For a project whose
+   algorithmic novelty claim is explicitly "temporal validity" and "which version of a clause
+   applied," 1/127 items actually exercising a pre/post-amendment date split is a real weakness
+   a reviewer will flag before worrying about raw item count. **Update (2026-11-22, D-017):** a
+   second item, `TAARR-DRAFT-0135`, is now drafted (status `draft`, in `draft_items.jsonl`,
+   not yet gold) as the pre-amendment negative companion to the existing `TAARR-DRAFT-0001` —
+   same obligation, reference date before the amendment instead of after. Still needs the full
+   annotation pipeline before it counts toward the gold benchmark's coverage.
 4. **Exemptions/dependencies are tested on 3 items.** The "exemptions, dependencies" novelty
    claim needs more than 2–3 examples to look like a tested mechanism rather than a demo.
 5. **Item count itself (127) is already inside the 100–200 target range** — so the priority is
