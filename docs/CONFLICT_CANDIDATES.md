@@ -39,13 +39,18 @@ the current consolidated RBI KYC Master Direction (URL already in the obligation
 settle which of the three outcomes above applies. This closes a real open question already
 flagged in the data — it isn't inventing a new one.
 
-## Candidate 2: SEBI LODR corporate-governance norms vs. RBI's bank board/committee rules, for an RBI-regulated listed bank, on or after 2021-09-01
+## Candidate 2: CLOSED — not a genuine Conflict (owner-confirmed 2026-11-22)
 
-This is the strongest candidate found so far — a genuine cross-regulator conflict with a
-documented history of its own precedence rule being removed, corroborated by multiple
-independent secondary sources (web research done 2026-11-22; primary gazette/circular text
-still needs to be pulled and quoted verbatim by a human before any item is drafted, per
-D-006/D-009's own standard — nothing below is quoted as clause text yet, only described).
+**Verdict: this candidate does not clear D-004's bar.** The project owner confirmed that the
+current RBI governance clause and the current SEBI LODR Regulation 17/18 text impose **the same
+requirement** — i.e. the two sides don't actually disagree today, whatever the removed proviso's
+history. D-004 requires authoritative sources to *genuinely disagree*; converging substantive
+requirements means there is nothing to adjudicate, regardless of whether a general precedence
+rule still exists on paper. The rest of this section is kept as a record of the research and
+why it looked promising, not as a live candidate — **do not draft a benchmark item from this.**
+
+The earlier framing below is preserved for the research trail, with the verdict above standing
+as the final word.
 
 **The shape of it:**
 1. SEBI (LODR) Regulations, 2015, Regulation 15(2), carried a proviso to clause (b) giving
@@ -130,15 +135,20 @@ Citation chain (all per the owner, cross-checked where notable below):
   `indiankanoon.org/doc/89681788/` (pre-2021 text archived inline) and the official SEBI
   consolidated LODR PDF under Legal → Regulations on sebi.gov.in.
 
-**What is still NOT done, and must be before this becomes a draft item, let alone gold:**
-- Pull the exact current RBI clause (2025 Master Direction id=13161, or whichever is live when
-  drafted) and the exact current LODR Regulation 17/18 text, both verbatim, both dated — the
-  pieces that actually conflict, now that the missing precedence-proviso side is fully sourced.
-- Confirm the entity type this actually bites for (a private-sector bank that is both
-  RBI-regulated *and* SEBI-listed under LODR) and that no other RBI/SEBI circular has since
-  reintroduced a precedence rule between 2021 and now.
-- This candidate's sourcing is now essentially complete on the "what used to resolve this, and
-  when did it stop" side. What remains is verbatim-quoting the two sides that actually conflict.
+**Why this is now closed rather than left open:** the proviso-removal history above is real and
+well-sourced, and made this *look* like a strong candidate — but D-004 asks whether the sources
+actually disagree, not whether a rule that used to prevent disagreement was removed. The owner's
+confirmation that RBI's current clause and LODR Regulation 17/18 give the same answer settles
+that question directly: there's no disagreement to adjudicate. This is itself a useful negative
+result — it shows the Candidate-2-style search (look for a removed precedence rule) can surface
+things that look promising on paper but resolve cleanly once the current substantive text is
+actually compared, which is exactly why D-004 and D-006's rigor insist on checking current text
+before drafting, not just amendment history.
+
+**Current status of the Conflict gap:** back to zero confirmed candidates (Candidate 1 is still
+open per its own three-way branch above; Candidate 2 is closed). The benchmark's zero-Conflict
+gap (`docs/STRATIFICATION_GAP_ANALYSIS.md`) remains unresolved and needs either Candidate 1's
+resolution or a new Candidate 3.
 
 ## What this branch did and didn't do
 

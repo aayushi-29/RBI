@@ -172,3 +172,22 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   sides that actually conflict today (the current RBI governance clause and the current LODR
   Regulation 17/18 text) — not yet done.
 - **Status:** open.
+
+## D-014: Candidate 2 closed — current RBI and LODR requirements don't actually disagree (2026-11-22)
+
+- **Context:** D-012/D-013 built out Candidate 2 (SEBI LODR vs. RBI bank governance) in detail —
+  a real, dated removal of a precedence proviso, fully sourced — making it look like the
+  strongest Conflict candidate found. The one remaining step was comparing the current RBI
+  governance clause against the current LODR Regulation 17/18 text.
+- **What happened:** the project owner confirmed directly that the two sides give the same
+  answer today — RBI's current clause and LODR Regulation 17/18 impose the same requirement.
+- **Why this closes the candidate:** D-004 requires authoritative sources to *genuinely
+  disagree*; it is not enough that a rule which used to prevent disagreement was removed. If the
+  substantive requirements converge anyway, there is nothing for an adjudicator to resolve, so
+  this cannot become a `Conflict`-outcome item regardless of the proviso's real removal history.
+- **Consequences:** `docs/CONFLICT_CANDIDATES.md`'s Candidate 2 section is marked closed, with
+  the research trail kept for record (it demonstrates why D-004 insists on checking current
+  substantive text, not just amendment/precedence history, before drafting). No benchmark item
+  results from this candidate. The benchmark's zero-Conflict gap remains open — back to needing
+  either Candidate 1's resolution or a new Candidate 3.
+- **Status:** closed (negative result).
