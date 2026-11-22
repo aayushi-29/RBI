@@ -321,3 +321,32 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
 - **Status:** added to the catalog as a single-pass research lead, needs human verification;
   closes part of gap #2 but 3 instruments is still thin against the 100–200 item stratification
   target's implied breadth — more instruments and benchmark items are still open work.
+
+## D-020: the KYC source URL cited by 42 obligation records is now dead (2026-11-22)
+
+- **Context:** found while researching a Candidate 3 Conflict lead (checking paragraph 40(e) vs
+  44(a) in the KYC Direction), not something being specifically looked for.
+- **What was found:** `https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=11566` — the
+  `source_url`/`official_url` cited by 42 of 61 `data/obligations/obligations.jsonl` records, and
+  appearing 127 times in `benchmark.jsonl` and 128 times in `draft_items.jsonl` — no longer serves
+  the KYC Master Direction. It now serves the "Reserve Bank of India (Non-Banking Financial
+  Companies – Responsible Business Conduct) Directions, 2025" (RBI/DOR/2025-26/362, dated
+  2025-11-28), the same instrument D-019 just added under a different id (12942). Neither "Know
+  Your Customer" nor "KYC" appears on the page. Sanity-checked against `id=13109` (confirmed
+  correctly serving KYC content) to rule out a fetch-tool fault — this is specific to `id=11566`.
+  Likely cause: RBI appears to recycle a repealed Direction's page id for a new, unrelated
+  Direction issued the same day (28 Nov 2025) — consistent with D-015's repeal finding, but a
+  distinct and more operationally urgent consequence of it.
+- **Why this is more urgent than D-015's original finding:** D-015/its correction concluded the
+  repeal doesn't affect any gold item's *substance* (reference dates all predate it). This entry
+  is about *citation accuracy*, not substance: every one of those 127+128 citation strings is now
+  a dead link to the wrong document for anyone who clicks through to verify sourcing — independent
+  of whether the underlying gold label is still correct.
+- **What this does NOT do:** no `source_url`/`official_url` value is changed by this entry.
+  Re-pointing 42 records correctly requires deciding, per obligation, which of (at least) four
+  2025 entity-specific successor Directions (Commercial Banks `id=13141`, Small Finance Banks
+  `id=13109`, Payments Banks `id=13090`, and an unverified Rural Co-operative Banks equivalent)
+  its modeled entity type corresponds to — the catalog's current generic `"RBI-regulated entity"`
+  `subject_scope` doesn't record this, so it is not a safe mechanical find-and-replace. Left for
+  human decision, per `docs/DATA_CURRENCY_ALERT.md`'s urgent addendum.
+- **Status:** open, flagged urgent — citation re-pointing needed, not started.

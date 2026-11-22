@@ -92,12 +92,52 @@ This is still a real and useful finding, just not an urgent one for the existing
   `docs/STRATIFICATION_GAP_ANALYSIS.md` (only 1 amendment-sensitive item exists today) with real
   regulatory history instead of a constructed example.
 
+## URGENT addendum (2026-11-22, same day, found while researching Candidate 3): the cited source URL itself is now dead
+
+The "not urgent" framing above was about the *reference dates* used by existing gold items. It
+did not check whether the `source_url`/`official_url` string the catalog cites —
+`https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=11566`, used by **42 of 61**
+obligation records in `data/obligations/obligations.jsonl`, and appearing **127 times** in
+`benchmark.jsonl` and **128 times** in `draft_items.jsonl` (via `gold_obligations[].official_url`)
+— still resolves to the KYC Master Direction at all. **It does not.**
+
+Fetched it directly (2026-11-22): `id=11566` now serves the **"Reserve Bank of India
+(Non-Banking Financial Companies – Responsible Business Conduct) Directions, 2025"**
+(RBI/DOR/2025-26/362, dated 2025-11-28) — the exact instrument this session added as the
+catalog's new third-instrument obligation in D-019, under a *different* id (12942). Neither
+"Know Your Customer" nor "KYC" appears on the `id=11566` page at all. Sanity-checked against a
+known-good id (`id=13109`, the Small Finance Banks KYC 2025 successor) to rule out a fetch-tool
+glitch — that one correctly shows KYC content, so this is a genuine finding about `id=11566`
+specifically, not a tool error. The most likely explanation: RBI appears to recycle a Master
+Direction's page id after repeal, and `id=11566`'s slot was reassigned to an unrelated new
+Direction on the same day the KYC Direction was taken down (28 Nov 2025).
+
+**Why this is more urgent than the reference-date finding above:** every one of those 127+128
+citation strings is now a dead link to the wrong document, for anyone — a human reviewer, an
+annotator, this project's own API responses that surface `official_url` — who clicks through to
+verify a KYC obligation's source. This is a live citation-accuracy defect affecting the
+*majority* of the benchmark's traceability, independent of whether any gold label itself is
+still correct.
+
+**What this entry does NOT do:** it does not change any `source_url`/`official_url` value in
+`obligations.jsonl`, `benchmark.jsonl`, or `draft_items.jsonl`. Re-pointing 42 obligation records
+correctly requires picking the right one of (at least) four 2025 entity-specific successor
+Directions per obligation — Commercial Banks (`id=13141`), Small Finance Banks (`id=13109`),
+Payments Banks (`id=13090`), and likely a Rural Co-operative Banks equivalent not yet looked up
+— and the catalog's current generic `"RBI-regulated entity"` `subject_scope` doesn't record
+which entity type each obligation was actually modeled against, so this isn't a safe
+find-and-replace. That mapping decision belongs to a human, not a same-session assistant patch.
+See `docs/DECISIONS.md` D-020.
+
 ## Recommended next step
 
-Not urgent for the existing gold benchmark. For any new RBI-KYC drafting (Candidate 1's
-resolution, or new stratification items), cite the correct 2025 entity-specific successor
-instead of the repealed 2016 original, and spot-check whether the specific clauses the catalog
-already relies on (paragraph 2, 23/28, 38(e)) carry over with the same substance under the new
-numbering. This is a one-time catalog currency sweep for new items, not a redesign of existing
-ones — the obligation *content* is probably still substantively
-correct, re-citation is the work.
+1. **New, more urgent:** decide, obligation by obligation, which 2025 entity-specific successor
+   Direction each `RBI-KYC-*` record's modeled entity type actually corresponds to, and re-point
+   `source_url`/`official_url` there — this is real work, not mechanical, because of the
+   entity-type ambiguity above.
+2. Unchanged from before: for any new RBI-KYC drafting (Candidate 1's resolution, or new
+   stratification items), cite the correct 2025 successor from the start, and spot-check that
+   paragraph 2/23/38(e)'s substance carries over under the new numbering (paragraph 38(e) →
+   42(7) in the Commercial Banks successor is confirmed in D-018's research; others unchecked).
+3. Reference dates on existing gold items are still fine — that part of this finding was
+   correctly downgraded from urgent and stays downgraded.
