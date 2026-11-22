@@ -86,11 +86,14 @@ all (train/test are the same 60 obligations).
    not "add more of the same," it's fixing the stratification shape above. Padding with more
    rbi_kyc applicability_positive/negative items would make the number bigger without closing
    any of the gaps a reviewer would actually probe.
-6. **New, higher-priority than originally scoped: the `rbi_kyc` instrument itself may be
-   stale.** See `docs/DATA_CURRENCY_ALERT.md` (added 2026-11-22) — the 2016 KYC Master Direction
-   underlying 90 of 127 items was repealed effective 28 Nov 2025. This isn't a stratification
-   gap, it's a currency risk on the existing items, and it should be checked before gap 2 (new
-   instruments) so a second stale-instrument problem isn't built in from the start.
+6. **Not urgent after all, but worth knowing:** the 2016 KYC Master Direction was repealed
+   effective 28 Nov 2025 (see `docs/DATA_CURRENCY_ALERT.md`). Checked directly: every one of the
+   90 `rbi_kyc` items uses a reference date before the repeal, so none of the current 127 gold
+   items are affected. Relevant for two things instead: (a) any *new* RBI-KYC item must cite the
+   right 2025 entity-specific successor, not the repealed 2016 text; (b) a reference date
+   straddling 27–28 Nov 2025 against an `rbi_kyc` obligation is a real, source-grounded
+   amendment-sensitive item — directly closes gap #3 (only 1 such item exists) with genuine
+   regulatory history instead of a constructed example.
 
 ## 4. What this branch does and doesn't do about it
 

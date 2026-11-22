@@ -55,33 +55,49 @@ the catalog itself was never updated to reflect it. This is a genuine temporal-v
 the data, not the engine — the engine would resolve these items correctly *against the data as
 given*; the data no longer reflects reality as of 28 November 2025.
 
-## What is NOT yet established (needs more research, flagged honestly rather than assumed)
+## Correction (2026-11-22, same day): the current 127 gold items are NOT affected
 
-- **Whether this affects the 127 gold_verified benchmark items' actual correctness.** Most
-  benchmark items use `reference_date: 2025-09-01` (87 items) or `2026-08-01` (32 items) — see
-  `docs/STRATIFICATION_GAP_ANALYSIS.md`. The 2025-09-01 items predate the 28 Nov 2025 repeal, so
-  for *those* items the 2016 Master Direction genuinely was the correct in-force instrument on
-  that reference date — **not an error for those items specifically.** The 32 items dated
-  2026-08-01 are reference dates *after* the repeal, and so are exactly the ones that should be
-  resolving against the 2025 entity-specific successor directions, not the repealed 2016 one —
-  this is the group that needs checking first.
+The first draft of this document assumed, without checking, that the 32 items dated
+`reference_date: 2026-08-01` were `rbi_kyc` items and therefore the group needing re-checking
+against the repeal. **That assumption was wrong, and checking it directly reverses the
+conclusion:**
+
+```
+rbi_kyc items:   90, date distribution: {'2025-09-01': 87, '2025-07-01': 3}
+sebi_lodr items: 37, date distribution: {'2026-08-01': 32, '2025-06-01': 3, '2023-05-01': 2}
+```
+
+**All 32 items dated `2026-08-01` are `sebi_lodr` items, not `rbi_kyc`.** Every single one of
+the 90 `rbi_kyc` items uses `2025-09-01` or `2025-07-01` — both before the 28 November 2025
+repeal. So **none of the current 127 gold_verified benchmark items are affected by this repeal
+at all.** The 2016 Master Direction genuinely was the correct, in-force instrument on every
+reference date any existing RBI-KYC item actually uses. No gold label needs revisiting on this
+account.
+
+This is still a real and useful finding, just not an urgent one for the existing benchmark:
+
+- **It matters for any *future* RBI-KYC item.** Any new draft item (for stratification, or for
+  resolving/replacing Candidate 1) with a reference date on or after 2025-11-28 must cite the
+  correct 2025 entity-specific successor direction, not the repealed 2016 one — and must pick
+  the right successor for its modeled entity type (Commercial Banks / Small Finance Banks /
+  Payments Banks / Rural Co-operative Banks), which the current catalog's generic
+  `"RBI-regulated entity"` subject_scope doesn't distinguish.
 - **Whether the entity-specific directions are substantively identical to the 2016 text** for
   the specific clauses the catalog relies on (38(e)'s notice duty, paragraph 2's general
   applicability rule, etc.), beyond the one confirmed paragraph-renumbering example (23 → 28 for
-  the small-account carve-out). Not yet checked clause by clause.
-- **Which entity-specific direction applies to which obligation.** The catalog's obligations
-  mostly use a generic `subject_scope: ["RBI-regulated entity"]` rather than distinguishing
-  Commercial Banks / Small Finance Banks / Payments Banks / Rural Co-operative Banks — but the
-  2025 successor regime is explicitly split by exactly that distinction. Obligations may need
-  entity-specific successor citations rather than one shared one, depending on which entity
-  types each is actually meant to cover.
+  the small-account carve-out), is still not checked clause by clause.
+- It's also a legitimate stratification opportunity in its own right: a benchmark item with a
+  reference date straddling 27–28 November 2025 against an `rbi_kyc` obligation would be a
+  genuine, real amendment-sensitive temporal test — closing gap #3 in
+  `docs/STRATIFICATION_GAP_ANALYSIS.md` (only 1 amendment-sensitive item exists today) with real
+  regulatory history instead of a constructed example.
 
 ## Recommended next step
 
-Before drafting any more RBI-KYC items (including resuming Candidate 1 or adding stratification
-items against this instrument), re-verify the 32 items with `reference_date: 2026-08-01`
-against the correct 2025 entity-specific successor direction for their modeled entity type, and
-spot-check whether the specific clauses the catalog already relies on (paragraph 2, 23/28,
-38(e)) carry over with the same substance under new numbering. This is a one-time catalog
-currency sweep, not a redesign — the obligation *content* is probably still substantively
+Not urgent for the existing gold benchmark. For any new RBI-KYC drafting (Candidate 1's
+resolution, or new stratification items), cite the correct 2025 entity-specific successor
+instead of the repealed 2016 original, and spot-check whether the specific clauses the catalog
+already relies on (paragraph 2, 23/28, 38(e)) carry over with the same substance under the new
+numbering. This is a one-time catalog currency sweep for new items, not a redesign of existing
+ones — the obligation *content* is probably still substantively
 correct, re-citation is the work.

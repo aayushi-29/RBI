@@ -208,14 +208,18 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
 - **A concrete drift already found:** the small-account carve-out, cited by the catalog and by
   Candidate 1's research as "paragraph 23 of Chapter VI," is "paragraph 28 of Chapter VI" in the
   2025 Small Finance Banks and Payments Banks successor directions — same substance, renumbered.
-- **Consequences:** new `docs/DATA_CURRENCY_ALERT.md` records the finding, what's confirmed vs.
-  not yet checked, and a scoped recommendation (re-verify the 32 benchmark items dated
-  `2026-08-01`, which postdate the repeal, against the correct entity-specific 2025 successor
-  first). This does not change any existing gold label — the items dated `2025-09-01` (87 of
-  127) predate the repeal and the 2016 Direction genuinely was in force on that reference date
-  for them. Nothing here is asserted as a confirmed error in the gold benchmark, only a
-  currency risk that needs the specific check `docs/DATA_CURRENCY_ALERT.md` describes.
-- **Status:** open — flagged, not yet acted on.
+- **Consequences:** new `docs/DATA_CURRENCY_ALERT.md` records the finding.
+- **Correction, same day:** the first draft of this entry and of `docs/DATA_CURRENCY_ALERT.md`
+  recommended re-verifying the 32 items dated `2026-08-01` first, on the unchecked assumption
+  that they were `rbi_kyc` items. Checking directly reverses this: **all 32 `2026-08-01` items
+  are `sebi_lodr` items; every one of the 90 `rbi_kyc` items uses `2025-09-01` or `2025-07-01`,
+  both before the 28 Nov 2025 repeal.** So **none of the current 127 gold_verified items are
+  affected by this repeal at all** — not an urgent fix, no gold label needs revisiting. The
+  repeal still matters for any *future* RBI-KYC item (must cite the right 2025 entity-specific
+  successor) and is itself a real amendment-sensitive stratification opportunity (a reference
+  date straddling 27–28 Nov 2025 would be a genuine temporal test, closing gap #3 with real
+  history). `docs/DATA_CURRENCY_ALERT.md` updated with this correction rather than left standing.
+- **Status:** open (as a forward-looking item for new drafting), downgraded from urgent.
 
 ## D-016: Candidate 1 leans toward "not a Conflict," pending final sign-off (2026-11-22)
 
