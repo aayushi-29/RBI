@@ -60,10 +60,49 @@ paraphrase. Confirmed:
   `docs/DATA_CURRENCY_ALERT.md` — this affects re-verifying Candidate 1 against the *correct*,
   currently-live instrument, not just the question of which paragraph governs which.
 
-**Verdict on Candidate 1, pending final human sign-off:** leans toward outcome 1 (genuine
-exemption, not Conflict) based on the substantive reading above — but should be re-checked
-against whichever 2025 entity-specific direction actually governs this obligation's modeled
-entity type before being finalized either way, per `docs/DATA_CURRENCY_ALERT.md`.
+**Verdict on Candidate 1 as of 2026-11-22 (earlier in the day):** leaned toward outcome 1 (genuine
+exemption, not Conflict) based on the substantive reading above — flagged as needing re-check
+against the 2025 successor direction before finalizing, per `docs/DATA_CURRENCY_ALERT.md`.
+
+**REOPENED (2026-11-22, later same day) — the promised re-check against the 2025 successor
+found a real structural discrepancy, not just a renumbering.** Fetched the live Reserve Bank of
+India (Commercial Banks – KYC) Directions, 2025 (`id=13141`) directly, specifically the
+Applicability section and the small-accounts clause, to re-check outcome 1 against the
+currently-live text rather than the repealed 2016 text. Findings (via WebFetch; the tool's
+125-character verbatim-quote limit means these are paraphrases of live text, not pasted
+quotations — **flagged for primary-text confirmation**, same caveat applied throughout this
+document):
+- The 2016 Direction's "paragraph 2" (general applicability clause, "applies to every entity...
+  except where specifically mentioned otherwise") does not have a direct successor carrying a
+  general small-account proviso. In the 2025 Commercial Banks Direction, the main domestic
+  applicability clause is now paragraph 3, and **paragraph 3 contains no mention of small
+  accounts and no proviso of any kind.** The only small-account proviso left in the Applicability
+  section (Chapter I.B) is on paragraph 4, which extends the Direction to a bank's *foreign
+  branches and subsidiaries* — a narrower, different clause than 2016's general-scope paragraph 2.
+- Paragraph 28 of Chapter VI (successor to 2016's paragraph 23, "Small Accounts") opens with
+  *"Notwithstanding anything contained in paragraph 23 and as an alternative thereto"* — i.e. its
+  own stated exemption scope is narrow: an alternative to paragraph 23's *document/identity*
+  requirements specifically, not a blanket carve-out from the whole Direction.
+- Paragraph 42(7) ("Due Notices for Periodic Updation of KYC," successor to 2016's paragraph
+  38(e)) does not itself mention small accounts or any exemption.
+- **What this means for Candidate 1:** if this reading is correct, the 2025 successor direction
+  does not contain a general, Direction-wide small-account exemption at all — only a narrow one
+  limited to paragraph 23's own CDD-document requirements. That would mean a small account is
+  **not** exempt from the periodic due-notices duty (paragraph 42(7)) under the *current* RBI
+  instrument, which is the opposite of this document's earlier (same-day) leaning toward outcome
+  1. The catalog's `RBI-KYC-PARA2-SMALL-ACCOUNT-PROVISO` exemption relation and `TAARR-DRAFT-0005`
+  (currently `Indeterminate`, modeled as exempt-if-small-account) were both built against the
+  *repealed* 2016 text's paragraph 2, whose own general proviso this session has not yet found a
+  surviving equivalent for in the 2025 successor.
+- **Status: reopened, not resolved either way.** This is exactly the kind of finding that
+  deserves a human legal reviewer's eyes, not a same-session self-reversal treated as final: it
+  rests on an AI-paraphrased fetch of a 155,000-character live government page, not a verified
+  primary-text excerpt pasted and cross-checked the way D-012/D-013 were for Candidate 2. Before
+  any conclusion, the recommended next step is to pull the actual PDF of RBI/DOR/2025-26's
+  Commercial Banks KYC Direction and verbatim-confirm (a) paragraph 3's full text has no proviso,
+  (b) paragraph 4's proviso text, and (c) paragraph 28's opening "notwithstanding" clause — the
+  same primary-source-pull standard used to confirm Candidate 2's text in D-012/D-013.
+- See `docs/DECISIONS.md` D-018 for the formal log entry.
 
 ## Candidate 2: CLOSED — not a genuine Conflict (owner-confirmed 2026-11-22)
 

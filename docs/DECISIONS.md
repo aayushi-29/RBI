@@ -259,3 +259,34 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   errors on `benchmark.jsonl` — confirmed via `git stash` that this is unrelated to this change
   and already true on the branch beforehand; not something this entry fixes.
 - **Status:** drafted, in the queue, not yet annotated.
+
+## D-018: Candidate 1 reopened — 2025 successor may not carry the general small-account proviso (2026-11-22)
+
+- **Context:** D-016 left Candidate 1 (paragraph-2 small-account proviso vs. paragraph-38(e)
+  notice duty) leaning toward "genuine exemption, not Conflict," explicitly conditioned on
+  re-checking against the 2025 successor to the repealed 2016 KYC Master Direction (D-015).
+  This entry is that promised re-check.
+- **What was found:** fetched the live RBI (Commercial Banks – KYC) Directions, 2025 (`id=13141`).
+  The 2016 Direction's general-scope "paragraph 2" (with its own small-account proviso) does not
+  appear to have a direct successor: the 2025 Direction's main domestic applicability clause
+  (paragraph 3) has no proviso or small-account mention at all. The only surviving small-account
+  proviso in the Applicability section is on paragraph 4 (a narrower clause, extending the
+  Direction to foreign branches/subsidiaries only). Separately, paragraph 28 ("Small Accounts,"
+  successor to paragraph 23) opens "Notwithstanding anything contained in paragraph 23 and as an
+  alternative thereto" — its own stated scope is an alternative to paragraph 23's CDD-document
+  requirements specifically, not a blanket Direction-wide exemption. Paragraph 42(7) (successor
+  to paragraph 38(e), the due-notices duty) makes no mention of small accounts either way.
+- **Why this matters:** if accurate, there may be no general small-account exemption from the
+  periodic due-notices duty under the *current* RBI instrument — reversing this same day's D-016
+  leaning. The catalog's `RBI-KYC-PARA2-SMALL-ACCOUNT-PROVISO` relation and benchmark item
+  `TAARR-DRAFT-0005` were both built against the repealed 2016 paragraph 2, not the 2025 text.
+- **Caveat, stated plainly:** this is based on an AI-paraphrased WebFetch of a large live
+  government page (a 125-character verbatim-quote limit in the tool means the findings above are
+  paraphrases, not pasted primary text), not a pasted/cross-checked primary-source excerpt at the
+  standard D-012/D-013 used for Candidate 2. This is a flag for human legal review and a
+  primary-text pull (ideally the actual PDF), not a new conclusion to build on.
+- **What this does NOT do:** no gold label, obligation record, or exemption relation is changed.
+  `data/obligations/obligations.jsonl` and `benchmark.jsonl` are untouched by this entry — this is
+  research documentation only, same as D-012/D-013/D-016 before it.
+- **Status:** open — reopened, contradicts D-016's same-day leaning, needs human verification
+  against primary PDF text before either direction is finalized.
