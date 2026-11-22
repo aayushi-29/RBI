@@ -288,8 +288,12 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
 - **What this does NOT do:** no gold label, obligation record, or exemption relation is changed.
   `data/obligations/obligations.jsonl` and `benchmark.jsonl` are untouched by this entry — this is
   research documentation only, same as D-012/D-013/D-016 before it.
-- **Status:** open — reopened, contradicts D-016's same-day leaning, needs human verification
-  against primary PDF text before either direction is finalized.
+- **Status: closed, inconclusive, deferred (owner decision, 2026-11-22).** The owner explicitly
+  chose not to assert either reading of paragraph 3/4/28 as correct — this is logged as closed
+  for now so it stops appearing as an open action item, but **no outcome is decided.** Candidate
+  1 remains without a gold or draft resolution. If anyone picks this up again later, start from
+  the primary-text pull this entry already asked for (D-018's "what was found" above), not from
+  scratch, and not from assuming either D-016's or D-018's reading is the answer.
 
 ## D-019: added the catalog's first third-instrument obligation (2026-11-22)
 
@@ -349,4 +353,29 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   its modeled entity type corresponds to — the catalog's current generic `"RBI-regulated entity"`
   `subject_scope` doesn't record this, so it is not a safe mechanical find-and-replace. Left for
   human decision, per `docs/DATA_CURRENCY_ALERT.md`'s urgent addendum.
-- **Status:** open, flagged urgent — citation re-pointing needed, not started.
+- **Resolved (owner decision, 2026-11-22):** the owner instructed that all existing generic
+  `"RBI-regulated entity"` obligations should be treated as modeled on Commercial Banks
+  specifically. Executed via `scripts/repoint_kyc_url_d020.py`: re-pointed `source_url`,
+  `consolidated_source_url`, and every `exemptions[]`/`dependencies[].official_url` in
+  `data/obligations/obligations.jsonl` (42 records), and every live `gold_obligations[]`/
+  `exemptions_dependencies[].official_url` in `benchmark.jsonl` (90 items) and
+  `draft_items.jsonl` (91 items) from the dead `id=11566` to the live Commercial Banks 2025
+  successor, `id=13141`. `instrument_id` updated to a new value, `RBI-KYC-CB-2025`, so it's no
+  longer conflated with the repealed `RBI-KYC-2016`/`RBI-KYC-MD-2016`. **Historical annotation
+  records inside `annotations` blocks (e.g. `source_verification.checked_urls`,
+  `adjudication.rationale`) were deliberately left untouched** — those describe what URL was
+  actually fetched during the 2026-10-21 annotation pass, which is accurate history, not a live
+  citation to fix. `python -m taarr.dataset validate` passes on both benchmark files (127/128
+  items), `load_catalog` loads cleanly (61 obligations), the full test suite (242 tests) and a
+  resolver sanity-check on `RBI-KYC-P38E-DUE-NOTICES` are unaffected, since URL/instrument-id
+  metadata doesn't feed applicability logic.
+- **What this still does NOT do:** clause/paragraph numbers were not bulk-renumbered against the
+  new document — only the three mappings already confirmed elsewhere in this session
+  (38(e)→42(7), 40(e)→44(5), 23→28) are known-correct. Every other `clause_id` in these 42
+  records (e.g. paragraph 39, 41(A), 46(a), 10(1)/(2), the paragraph-3/16(b)/30/32 PAN-threshold
+  clauses, 5A(b), 37(1), 12(4), the paragraph-38 risk-rekyc variants) still reflects 2016
+  numbering and has **not** been individually re-verified against the Commercial Banks 2025
+  text. The citation link now points at the right document; whether each clause number inside
+  that document still says what the record claims is separate, unverified work.
+- **Status:** closed for the URL/instrument-identity question (owner decision executed). Clause-
+  number-by-clause-number re-verification against the new document remains open, separate work.

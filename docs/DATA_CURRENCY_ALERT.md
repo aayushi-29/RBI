@@ -129,15 +129,21 @@ which entity type each obligation was actually modeled against, so this isn't a 
 find-and-replace. That mapping decision belongs to a human, not a same-session assistant patch.
 See `docs/DECISIONS.md` D-020.
 
-## Recommended next step
+## Resolved (2026-11-22, same day): citation URLs re-pointed
 
-1. **New, more urgent:** decide, obligation by obligation, which 2025 entity-specific successor
-   Direction each `RBI-KYC-*` record's modeled entity type actually corresponds to, and re-point
-   `source_url`/`official_url` there — this is real work, not mechanical, because of the
-   entity-type ambiguity above.
-2. Unchanged from before: for any new RBI-KYC drafting (Candidate 1's resolution, or new
-   stratification items), cite the correct 2025 successor from the start, and spot-check that
-   paragraph 2/23/38(e)'s substance carries over under the new numbering (paragraph 38(e) →
-   42(7) in the Commercial Banks successor is confirmed in D-018's research; others unchecked).
-3. Reference dates on existing gold items are still fine — that part of this finding was
-   correctly downgraded from urgent and stays downgraded.
+The owner decided: treat all existing generic `"RBI-regulated entity"` obligations as modeled
+on Commercial Banks specifically. `scripts/repoint_kyc_url_d020.py` re-pointed `source_url`,
+`consolidated_source_url`, and every live `official_url` in `obligations.jsonl` (42 records),
+`benchmark.jsonl` (90 items), and `draft_items.jsonl` (91 items) from the dead `id=11566` to
+the live Commercial Banks 2025 successor, `id=13141`. `instrument_id` is now `RBI-KYC-CB-2025`.
+Historical annotation records (what URL was actually checked on 2026-10-21) were left
+untouched on purpose — that is accurate history, not a citation to fix. Validation, catalog
+load, full test suite (242), and a resolver sanity check all pass unaffected. Full detail in
+`docs/DECISIONS.md` D-020.
+
+**Still open, separate from the URL fix:** clause/paragraph numbers were not bulk-renumbered.
+Only three mappings are confirmed against the new document (38(e)→42(7), 40(e)→44(5),
+23→28, all from D-018's research). Every other `clause_id` among those 42 records still
+reflects 2016 numbering and needs individual re-verification against the Commercial Banks 2025
+text before being treated as accurate. Reference dates on existing gold items are still fine —
+that part of this finding was correctly downgraded from urgent earlier and stays downgraded.
