@@ -97,16 +97,48 @@ exact regulation structure:
   narrower and don't cover this case. Both LODR and RBI's governance regime apply concurrently,
   with no general tie-breaker.
 
+**Verbatim pre-omission proviso text, supplied by the project owner (2026-11-22) and
+independently cross-checked against a hosted mirror of the consolidated LODR text
+(`ca2013.com/lodr-regulation-15/`), which preserves the same wording with strikethrough
+formatting against the live regulation:**
+
+> "Provided that for other listed entities which are not companies, but body corporate or are
+> subject to regulations under other statutes, the provisions of corporate governance
+> provisions as specified in regulation 17, [17A,] 18, 19, 20, 21, 22, 23, 24, [24A,] 25, 26,
+> 27 and clauses (b) to (i) of sub-regulation (2) of regulation 46 and para C, D and E of
+> Schedule V shall apply to the extent that it does not violate their respective statutes and
+> guidelines or directives issued by the relevant authorities."
+
+Citation chain (all per the owner, cross-checked where notable below):
+- Inserted into the proviso: `17A` and `24A`, by the SEBI (LODR) (Amendment) Regulations, 2018,
+  Notification No. SEBI/LAD-NRO/GN/2018/10, dated 9 May 2018, w.e.f. 1 April 2019 (the owner
+  notes some consolidated footnotes carry a typographical slip of "w.e.f. 2.9.2015" for this —
+  worth independently confirming before citing a date from a footnote rather than the
+  notification itself).
+- Omitted in full: by the SEBI (LODR) (Second Amendment) Regulations, 2021, Notification No.
+  SEBI/LAD-NRO/GN/2021/22, dated 5 May 2021, w.e.f. 1 September 2021, Regulation 3(V) — matches
+  the primary-source confirmation already found above.
+- Baseline (pre-2018, no 17A/24A): Notification No. SEBI/LAD-NRO/GN/2015-16/013, published
+  2 September 2015, effective 1 December 2015, Chapter IV, Regulation 15(2)(b).
+- **Cross-check note:** `ca2013.com/lodr-regulation-15/`'s own footnote gives the omission date
+  as "w.e.f 01.09.2019" against the same 05.05.2021 notification — internally inconsistent (the
+  notification postdates that claimed effective date by over a year), i.e. that specific mirror
+  has a typo. The owner's 1 September **2021** date is the one consistent with the notification
+  date and with every other source checked (vinodkothari.com, the primary gazette-hosted PDF).
+  Flagging this so whoever drafts the final item cites 2021, not the mirror's 2019 typo.
+- Other mirrors named by the owner, not yet independently fetched in this session:
+  `indiankanoon.org/doc/89681788/` (pre-2021 text archived inline) and the official SEBI
+  consolidated LODR PDF under Legal → Regulations on sebi.gov.in.
+
 **What is still NOT done, and must be before this becomes a draft item, let alone gold:**
-- Quote the omitted proviso's own exact pre-2021 text (not yet located verbatim in primary form —
-  only its existence and omission date are primary-confirmed) and the exact current RBI clause
-  (2025 Master Direction id=13161, or whichever is live when drafted) and current LODR
-  Regulation 17/18 text, all verbatim, all dated.
+- Pull the exact current RBI clause (2025 Master Direction id=13161, or whichever is live when
+  drafted) and the exact current LODR Regulation 17/18 text, both verbatim, both dated — the
+  pieces that actually conflict, now that the missing precedence-proviso side is fully sourced.
 - Confirm the entity type this actually bites for (a private-sector bank that is both
   RBI-regulated *and* SEBI-listed under LODR) and that no other RBI/SEBI circular has since
   reintroduced a precedence rule between 2021 and now.
-- This is now a materially stronger candidate than when first drafted — the structural/substantive
-  question that was the main open risk is resolved — but it is still not a benchmark item.
+- This candidate's sourcing is now essentially complete on the "what used to resolve this, and
+  when did it stop" side. What remains is verbatim-quoting the two sides that actually conflict.
 
 ## What this branch did and didn't do
 

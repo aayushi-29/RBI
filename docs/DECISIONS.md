@@ -150,3 +150,25 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   item is drafted.
 - **Status:** open — Candidate 2's remaining verification steps (verbatim proviso text, current
   RBI/LODR clause text, confirming no later precedence rule was reintroduced) are unstarted.
+
+## D-013: Verbatim pre-omission proviso text supplied and cross-checked (2026-11-22)
+
+- **Context:** D-012 confirmed the omitted-proviso-under-clause-(b) structure and its omission
+  date via a primary gazette excerpt, but the proviso's own pre-2021 wording hadn't been located.
+- **What happened:** the project owner supplied the verbatim proviso text plus a full citation
+  chain (the 2018 amendment inserting `17A`/`24A`, the 2021 omission notification, and the 2015
+  baseline notification). The assistant independently cross-checked this against a hosted mirror
+  of the consolidated LODR text (`ca2013.com/lodr-regulation-15/`), which preserves the same
+  proviso wording with strikethrough formatting — matching word for word.
+- **A discrepancy found and resolved:** that mirror's own footnote gives the omission date as
+  "w.e.f 01.09.2019" against the same 05.05.2021 notification, which is internally inconsistent
+  (the omission date cannot precede the notification that ordered it). The owner's and D-012's
+  date of 1 September **2021** is the one consistent with the notification date and every other
+  source checked. `docs/CONFLICT_CANDIDATES.md` flags this explicitly so the 2019 typo on that
+  one mirror is never cited as the effective date.
+- **Consequences:** Candidate 2's sourcing on the "what used to resolve this conflict, and when
+  it stopped" side is now essentially complete, with a verbatim proviso and a full citation
+  chain. What remains before this can be drafted as a benchmark item is verbatim-quoting the two
+  sides that actually conflict today (the current RBI governance clause and the current LODR
+  Regulation 17/18 text) — not yet done.
+- **Status:** open.
