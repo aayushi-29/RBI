@@ -256,3 +256,48 @@ remittance, these would appear to clash.
 
 Kept here as a worked, closed lead (same convention as Candidate 2) so the next research pass
 doesn't re-tread it.
+
+## Candidate 4 (checked, not found): RBI NBFC related-party loan sanction vs. SEBI LODR Reg 23 audit-committee approval
+
+**Checked 2026-11-23, following an explicit owner instruction to find a real Conflict.** The
+lead: a listed NBFC making a loan to a related party is simultaneously subject to RBI's
+prudential lending rules and SEBI's listed-entity governance rules — two different regulators,
+same transaction, same entity, which is exactly the shape a genuine Conflict needs.
+
+**What was actually found, from primary/near-primary sources via WebSearch:**
+- RBI finalized "Amendment Directions on Lending to Related Parties by Regulated Entities"
+  (RBI/2025-26/179, DOR.CRE.REC.380/07-02-008/2025-26, dated 5 Jan 2026), amending the NBFC
+  Credit Risk Management Directions, 2025 (`id=12954`). The live text (paragraph 13I): *"All
+  loans above the prescribed materiality threshold shall be sanctioned by the Board of the
+  NBFC."* — a **Board-sanction** duty, triggered only **above a materiality threshold** the RBI
+  Directions set.
+- SEBI LODR Regulation 23(2): *"All related party transactions shall require prior approval of
+  the audit committee"* — an **Audit Committee approval** duty, applying to **all** RPTs
+  irrespective of value (with shareholder approval added on top for transactions material under
+  SEBI's own, separate threshold test).
+
+**Why it's not a Conflict, on the text found:** nothing in either source says its own approval
+body is the *exclusive* one, or that the other regulator's approval requirement is displaced.
+A listed NBFC can satisfy both: Board sanction for loans above the RBI threshold, and Audit
+Committee (plus shareholder, if material) approval for the same transaction under LODR Reg 23 —
+cumulative, overlapping compliance obligations, not a contradiction where satisfying one duty
+would violate the other. This is the same shape as Candidates 2 and 3: two regulators layering
+requirements on the same fact pattern, not genuinely disagreeing about what the entity may or
+must do.
+
+**Caveat:** sourced via WebSearch snippets of the RBI notification and several SEBI circulars
+referencing Regulation 23(2)-(4), not a single pasted primary-text read of either full
+instrument — same single-pass research caveat as D-018/D-022/D-023. The RBI Related-Party
+Lending Directions were themselves only finalized 5 Jan 2026 (previously a draft open for
+comment, closed 31 Oct 2025), so this is also a very recent provision with limited secondary
+commentary to cross-check against.
+
+**Running pattern worth naming explicitly:** four candidates have now been checked across two
+research sessions (Candidates 1-4); none is a genuine Conflict on the primary/secondary text
+found so far. The recurring shape is that RBI and SEBI (and RBI's own instruments against each
+other) tend to add cumulative, non-exclusive requirements rather than issue directly
+contradictory ones — which is itself a modest, honest finding about this regulatory domain, not
+a failure of the search. It does not prove no genuine Conflict exists anywhere in RBI/SEBI law;
+it means none has turned up yet in the areas searched (KYC onboarding rules, foreign-student
+remittances, NBFC/listed-entity board governance, and now NBFC/listed-entity related-party
+approval authority).

@@ -66,7 +66,13 @@ all (train/test are the same 60 obligations).
 1. **Zero Conflict examples.** This is the single biggest gap — one whole outcome class
    untested, and (per D-011 on this branch) the reason macro-F1 reads 0.75 instead of 1.0.
    See `docs/CONFLICT_CANDIDATES.md` (added on this branch) for real candidate scenarios
-   worth a human adjudicator's attention under D-004's rule.
+   worth a human adjudicator's attention under D-004's rule. **Update (2026-11-23, D-025):**
+   four candidates have now been checked across two sessions (KYC small-account proviso,
+   bank-vs-LODR board governance, KYC onboarding rules, and NBFC/SEBI related-party approval
+   authority) — none is a genuine Conflict on the text found. The pattern so far is that RBI
+   and SEBI tend to layer cumulative requirements rather than contradict each other outright.
+   Still genuinely open: either a wider search turns up a real one, or this outcome stays
+   untested in the gold benchmark.
 2. **Regulatory scope was two instruments.** RBI KYC Master Direction and SEBI LODR only.
    The project's own novelty claim is about RBI *and* SEBI applicability reasoning generally;
    a reviewer will reasonably ask whether the engine generalizes beyond KYC/LODR. **Update

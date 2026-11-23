@@ -550,3 +550,33 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   three obligations, note that their catalog entry says "human-confirmed" while D-024 itself
   documents that no such confirmation actually took place — read this entry before trusting that
   field for these three IDs specifically.
+
+## D-025: fourth Conflict candidate searched, still not found (2026-11-23)
+
+- **Context:** the owner asked me to go find a real Conflict in RBI/SEBI text and gold-verify it
+  properly, rather than build a synthetic demo obligation just to show the mechanism working.
+- **What was searched:** RBI's NBFC-specific related-party lending rules (finalized 5 Jan 2026,
+  amending the NBFC Credit Risk Management Directions — a Board-sanction duty above a
+  materiality threshold) against SEBI LODR Regulation 23(2)'s audit-committee-approval duty for
+  all related-party transactions. A listed NBFC making a related-party loan is subject to both,
+  which is the right shape for a genuine two-regulator conflict.
+- **Result: not a Conflict.** Neither source claims exclusivity over the other's approval body;
+  a listed NBFC can satisfy both requirements on the same transaction (Board sanction + Audit
+  Committee/shareholder approval). Documented in full, with sources, as "Candidate 4 (checked,
+  not found)" in `docs/CONFLICT_CANDIDATES.md`, following the same convention as Candidates 2
+  and 3.
+- **Honest pattern, named explicitly:** four candidates across two sessions, zero genuine
+  Conflicts found. The recurring shape is RBI and SEBI (and RBI's own instruments against each
+  other) adding cumulative, non-exclusive requirements rather than directly contradicting one
+  another — a real finding about how these regulators tend to legislate, not a failed search.
+  This does not prove no genuine Conflict exists in RBI/SEBI law generally; it means none has
+  turned up in the specific areas checked so far (KYC onboarding, foreign-student remittances,
+  board governance, and now related-party approval authority).
+- **What this does NOT do:** no new obligation, exemption, or benchmark item was added. The
+  catalog, benchmark, and test suite are unchanged by this entry — it is a research record only.
+- **Status:** closed as a negative result, same as Candidates 2 and 3. The project's own
+  `Conflict` outcome remains untested in the gold benchmark (0/127 items). Two honest paths
+  remain open, not mutually exclusive: keep searching a wider set of instruments/areas for a
+  real candidate, or accept that a demo-only obligation (never gold, clearly labeled) may be the
+  only way to show the mechanism works without asserting a legal conclusion the evidence doesn't
+  support.
