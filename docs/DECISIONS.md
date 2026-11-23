@@ -618,3 +618,40 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
 - **Status:** done as scoped — draft coverage now exists on all 5 catalog instruments instead of
   2. The real gap (gold coverage) is explicitly still open and explicitly named as such in every
   new item's own annotations.
+
+## D-027: deepened draft coverage on the three newer instruments, 7 → 17 items (2026-11-23)
+
+- **Context:** the owner asked for more than the initial 7 draft items on the newer instruments
+  — one Applicable/Not-applicable pair each felt thin next to the KYC/LODR clusters.
+- **What was added:** 10 more `draft` items (`TAARR-DRAFT-0143`–`TAARR-DRAFT-0152`), bringing the
+  three newer instruments to 17 draft items total (4 RBI-NBFC, 6 RBI-FEMA, 7 SEBI-PIT):
+  - **RBI-NBFC** (+2): an amendment-sensitive Not-applicable (reference date before
+    `effective_from`) and an Indeterminate (the sole `is_nbfc` fact omitted).
+  - **RBI-FEMA** (+3): Not-applicable via the *other* `all_of` condition failing
+    (`is_indian_company=false`, complementing the existing allotment-false item), an
+    Indeterminate on the other missing fact, and an amendment-sensitive Not-applicable.
+  - **SEBI-PIT** (+5): Not-applicable via the entity-type gate alone
+    (`is_listed_entity=false`), Not-applicable via the role gate alone
+    (`is_promoter_designated_person_or_director=false`), a numeric **boundary-value** test at
+    exactly Rs 10,00,000 (confirms the catalog's `gt`, not `gte`, operator — at-threshold is
+    still Not applicable), an Indeterminate on the missing numeric fact, and an
+    amendment-sensitive Not-applicable.
+- **Why these specific items:** each isolates one condition in a multi-condition `all_of` block
+  rather than changing several facts at once, so each item tests exactly one thing — the same
+  discipline the existing KYC/LODR applicability_positive/negative pairs follow. The numeric
+  boundary item in particular exercises something no existing benchmark item does: confirming
+  the exact-equality edge of a `gt` comparison, not just a clearly-over/clearly-under pair.
+- **Verification tier:** identical to D-026 — every item is `"draft"`, not gold, with the same
+  per-item caveat that this is a single assistant pass and the underlying obligations'
+  `verification_status` is a D-024 owner override, not a genuine human check. Every expected
+  outcome was independently confirmed by running `resolve_obligation` against the item's own
+  profile and date; all 10 matched with zero mismatches.
+- **Side effects:** `draft_items.jsonl` grows 135 → 145 items, all structurally valid via
+  `python -m taarr.dataset validate`. `benchmark.jsonl` (127 gold items) untouched. 242 tests
+  pass (unaffected).
+- **What this does NOT do:** same limit as D-026 — none of these 17 items is promoted to gold.
+  That still needs the real two-independent-annotator pipeline (D-007–D-009).
+- **Status:** done as scoped. The three newer instruments now have meaningfully deeper draft
+  coverage (17 items, exercising all four outcome-relevant mechanisms: boolean gates, a numeric
+  threshold with a boundary case, missing-fact abstention, and amendment-sensitivity) without
+  any of it being mistaken for gold-tier evidence.
