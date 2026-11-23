@@ -76,11 +76,17 @@ all (train/test are the same 60 obligations).
    Direction – Foreign Investment in India) — both single-pass research leads
    (`verification_status` tiers below the catalog's `"source_text_human_confirmed"` norm,
    D-022 lower still since its exact paragraph number isn't confirmed), not yet human-verified,
-   and no benchmark item is built from either yet. 4 instruments total now — better, still short
-   of a broad stratification claim. Remaining candidate: a second SEBI instrument (Mutual Funds
-   Regulations or ICDR), to show the engine isn't LODR-specific on the SEBI side too. Not yet
-   done — needs the same D-006-style source-text verification before any item can be drafted
-   against it.
+   and no benchmark item is built from either yet. **Update (2026-11-23, D-023):** a second
+   SEBI instrument is now in the catalog too — `SEBI-PIT-REG7-2A-CONTINUAL-DISCLOSURE` (SEBI
+   Prohibition of Insider Trading Regulations, 2015), chosen over the originally-suggested
+   Mutual Funds/ICDR candidates for a well-corroborated, differently-shaped (numeric
+   threshold + fixed deadline) obligation. Same `"assistant_single_pass_webfetch"` tier as
+   D-019 — the live primary PDF itself was fetched and quoted, not just a cover page — but
+   still not human-verified, and no benchmark item is built from it yet. **5 instruments total
+   now, 2 of them SEBI** — gap #2 as originally scoped (a second SEBI instrument) is closed at
+   the catalog level; the remaining work is the same D-006-style human verification pass across
+   all four new entries (D-019, D-022, D-023, plus the 2025 KYC renumbering in D-021) before any
+   of them can be drafted into a gold benchmark item.
 3. **Amendment-sensitive reasoning is tested once in the gold benchmark.** For a project whose
    algorithmic novelty claim is explicitly "temporal validity" and "which version of a clause
    applied," 1/127 items actually exercising a pre/post-amendment date split is a real weakness

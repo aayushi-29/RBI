@@ -461,3 +461,54 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   open the primary Master Direction PDF and find the real paragraph number before this is
   treated as equivalent to the rest of the catalog, let alone drafted into a benchmark item.
   4 instruments now in the catalog (still short of a broad stratification target, but moving).
+
+## D-023: added a second SEBI instrument — PIT continual-disclosure threshold (2026-11-23)
+
+- **Context:** `docs/STRATIFICATION_GAP_ANALYSIS.md` gap #2 named a second SEBI instrument
+  (Mutual Funds Regulations or ICDR) as the one remaining diversity candidate after D-019 and
+  D-022 — every SEBI obligation in the catalog so far came from SEBI LODR (listed-entity board
+  and audit-committee governance). The owner's instruction ("A second SEBI instrument, if you
+  still want more diversity") authorized this without further scoping, so a candidate was chosen
+  independently: SEBI (Prohibition of Insider Trading) Regulations, 2015, rather than Mutual
+  Funds or ICDR, because its continual-disclosure rule is a clean numeric-threshold-plus-deadline
+  obligation (a different shape from LODR's governance-composition rules) and is unusually
+  well-corroborated across independent sources, including a SEBI informal-guidance letter and a
+  tribunal order quoting the regulation verbatim.
+- **What was added:** `SEBI-PIT-REG7-2A-CONTINUAL-DISCLOSURE` — a promoter, promoter-group
+  member, designated person, or director of a listed company must disclose share trades to the
+  company within two trading days once the aggregate traded value in a calendar quarter exceeds
+  ten lakh rupees. Legal basis: SEBI (Prohibition of Insider Trading) Regulations, 2015,
+  Regulation 7(2)(a) (as substituted w.e.f. 1 Apr 2019; unchanged by later amendments up to the
+  12 Mar 2025 consolidated text).
+- **Verification tier:** `verification_status: "assistant_single_pass_webfetch"` — same tier as
+  D-019, one step above D-022. Unlike D-022, the live official SEBI PDF itself (not just a cover
+  page) was fetched and quoted the operative sub-regulation text, threshold, and deadline
+  directly; this was then cross-checked against several independent secondary sources found in
+  the same research pass (law-firm alerts, an ICSI compendium, a SEBI informal-guidance letter to
+  Kotak Mahindra Bank, and a tribunal order), all agreeing on the Rs 10 lakh / 2-trading-day
+  figures. Still an AI-paraphrased single pass, not an owner-verified read — kept clearly below
+  `"source_text_human_confirmed"` for that reason.
+- **Modeling choice flagged in the obligation's own notes:** the regulation's text names the
+  promoter/designated person/director as the disclosing party, not the company — modeled here as
+  resting on `is_listed_entity` (the company) plus a new person-role fact, since PIT Regulations
+  only apply where the company's securities are listed. The company's own downstream duty to
+  notify the stock exchange (regulation 7(2)(b)) is not modeled.
+- **New facts registered:** `is_promoter_designated_person_or_director` (`board_and_listing`
+  group) and `securities_traded_value_in_quarter_rupees` (`transaction` group) added to
+  `data/facts/fact_registry.json`.
+- **Side effects, all mechanical:** catalog grew 62 → 63 obligations; facts grew 46 → 48. Updated
+  the same four tests touched by D-019/D-022
+  (`test_catalog_grew_to_sixty_obligations`,
+  `test_pilot_catalog_loads_both_obligations_with_their_exemptions`,
+  `test_checklist_covers_every_obligation`, `test_api_endpoints`) plus
+  `test_checklist_regulator_filter_and_answers_reduce_unknowns` (SEBI-filtered checklist total,
+  18 → 19, since this is the first new SEBI-regulator obligation since the LODR pilot), each with
+  a comment pointing here. Full suite: 242 passed. `python -m taarr.dataset validate` unaffected
+  (no benchmark item built from this obligation yet).
+- **What this does NOT do:** no benchmark item, draft or gold, is built from this obligation. No
+  existing obligation, exemption, or gold label is touched.
+- **Status:** done, mechanically — 5 instruments now in the catalog (RBI-KYC, RBI-NBFC,
+  RBI-FEMA, SEBI-LODR, SEBI-PIT), 2 of them SEBI, closing gap #2 as originally scoped. Still
+  needs a human source-text check before this obligation (or anything built on it) is treated as
+  equivalent to the catalog's human-confirmed entries, and still has zero benchmark items built
+  from either SEBI-PIT or RBI-FEMA.
