@@ -580,3 +580,41 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   real candidate, or accept that a demo-only obligation (never gold, clearly labeled) may be the
   only way to show the mechanism works without asserting a legal conclusion the evidence doesn't
   support.
+
+## D-026: seven draft items added on the three newer instruments (2026-11-23)
+
+- **Context:** the owner pointed out that the catalog's instrument diversity (D-019/D-022/D-023,
+  5 instruments total) wasn't reflected in the benchmark — all 127 gold items still sit on just
+  2 instruments (90 `rbi_kyc`, 37 `sebi_lodr`), and asked for benchmark coverage on the others.
+- **What was added:** 7 items in `data/benchmark/draft_items.jsonl`
+  (`TAARR-DRAFT-0136`–`TAARR-DRAFT-0142`), two per new instrument plus one extra:
+  - `RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT`: Applicable (`is_nbfc=true`) and Not applicable
+    (`is_nbfc=false`).
+  - `RBI-FEMA-FCGPR-REPORTING-TIMELINE`: Applicable (both conditions true), Not applicable
+    (allotment condition false), and Indeterminate (allotment fact omitted entirely) — the first
+    Indeterminate item on any instrument other than RBI-KYC/SEBI-LODR.
+  - `SEBI-PIT-REG7-2A-CONTINUAL-DISCLOSURE`: Applicable (Rs 15 lakh, over threshold) and Not
+    applicable (Rs 5 lakh, under threshold) — the first benchmark item anywhere to exercise a
+    3-condition `all_of` block (boolean entity gate + boolean role gate + numeric threshold).
+- **Verification tier — explicitly `draft`, not gold:** every item's `annotation_status` is
+  `"draft"`, and each one's `annotations.source_verification.caveat` states plainly that this is
+  a single assistant pass, not the project's two-independent-annotator protocol (D-007–D-009),
+  and that the underlying obligation's own `verification_status` is itself a D-024 owner
+  override rather than a genuine human check. No item here is `gold_verified`,
+  `dual_annotated`, or `adjudicated` — that would require real independent human annotators,
+  which D-005 forbids simulating.
+- **What was actually checked:** every expected `gold_outcome` was independently confirmed by
+  running `src/taarr/reasoning.resolve_obligation` against the item's own entity profile and
+  reference date with the project's committed resolver policy, and all 7 matched. This is a
+  computational consistency check (same caveat as D-009's own adjudication note), not a
+  human-verified legal conclusion.
+- **Side effects:** `data/benchmark/draft_items.jsonl` grew 128 → 135 items;
+  `python -m taarr.dataset validate` confirms all 135 structurally valid. `benchmark.jsonl` (the
+  127-item gold set) is untouched — accuracy/macro-F1 numbers are unaffected. 242 tests pass
+  (unaffected; no test asserts draft-item counts).
+- **What this does NOT do:** it does not close the instrument-concentration gap in the *gold*
+  benchmark — these are drafts, not promoted items. Turning any of these 7 into gold still
+  needs the full D-007–D-009 pipeline: two independent human annotators and adjudication.
+- **Status:** done as scoped — draft coverage now exists on all 5 catalog instruments instead of
+  2. The real gap (gold coverage) is explicitly still open and explicitly named as such in every
+  new item's own annotations.

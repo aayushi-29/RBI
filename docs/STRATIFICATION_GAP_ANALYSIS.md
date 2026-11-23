@@ -88,9 +88,15 @@ all (train/test are the same 60 obligations).
    Mutual Funds/ICDR candidates for a well-corroborated, differently-shaped (numeric
    threshold + fixed deadline) obligation. Same `"assistant_single_pass_webfetch"` tier as
    D-019 — the live primary PDF itself was fetched and quoted, not just a cover page — but
-   still not independently human-verified, and no benchmark item is built from it yet. **5
-   instruments total now, 2 of them SEBI** — gap #2 as originally scoped (a second SEBI
-   instrument) is closed at the catalog level. **Update (2026-11-23, D-024):** at the owner's
+   still not independently human-verified. **5 instruments total now, 2 of them SEBI** — gap #2
+   as originally scoped (a second SEBI instrument) is closed at the catalog level. **Update
+   (2026-11-23, D-026):** 7 `draft` benchmark items (not gold) now exist across the 3 newer
+   instruments — 2 on RBI-NBFC, 3 on RBI-FEMA (including the first Indeterminate item outside
+   RBI-KYC/SEBI-LODR), 2 on SEBI-PIT (the first 3-condition `all_of` item in the benchmark). All
+   7 expected outcomes were confirmed by running the actual resolver, but none is
+   `gold_verified` — that needs the real two-annotator pipeline (D-007–D-009). The *gold*
+   benchmark is still 90 `rbi_kyc` / 37 `sebi_lodr` / 0 on anything else; only the draft layer
+   now reflects the catalog's full instrument range. **Update (2026-11-23, D-024):** at the owner's
    explicit instruction, the `verification_status` field on D-019, D-022, and D-023 was set to
    `"source_text_human_confirmed"` *without* an actual human source-text check — a documented
    owner override, not a genuine D-006-style pass (see D-024 for the full record). None of the
