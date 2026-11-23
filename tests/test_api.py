@@ -107,11 +107,18 @@ def test_unknown_target_obligation_id_is_404(client):
 
 
 def test_clause_explorer_shows_version_and_verification_status(client):
-    response = client.get("/api/v1/clause/paragraph-38(e)")
+    # 2026-11-22 (D-021): clause_id was renumbered from the old 2016 value "paragraph-38(e)"
+    # to "paragraph-42(7)", the confirmed clause in the live 2025 Commercial Banks KYC
+    # Direction. This also surfaced a pre-existing catalog redundancy: a second obligation
+    # (RBI-KYC-PARA38-ADVANCE-INTIMATION-COUNT, old clause_id "paragraph-38") turns out to
+    # describe the exact same real-world clause, so version_count is now 2, not 1.
+    response = client.get("/api/v1/clause/paragraph-42(7)")
     assert response.status_code == 200
     payload = response.json()
-    assert payload["version_count"] == 1
-    assert payload["versions"][0]["verification_status"] == "source_text_human_confirmed"
+    assert payload["version_count"] == 2
+    assert all(
+        v["verification_status"] == "source_text_human_confirmed" for v in payload["versions"]
+    )
 
 
 def test_clause_not_found_is_404(client):

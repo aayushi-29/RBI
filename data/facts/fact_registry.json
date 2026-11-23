@@ -15,6 +15,24 @@
    "question": "Is your organisation regulated by the RBI (for example a bank or an NBFC)?"
   },
   {
+   "key": "is_nbfc",
+   "group": "organisation",
+   "type": "boolean",
+   "question": "Is your organisation a Non-Banking Financial Company (NBFC)?"
+  },
+  {
+   "key": "is_indian_company",
+   "group": "organisation",
+   "type": "boolean",
+   "question": "Is your organisation an Indian company?"
+  },
+  {
+   "key": "allotted_shares_to_nonresident",
+   "group": "transaction",
+   "type": "boolean",
+   "question": "Has your company allotted shares or convertible instruments to a person resident outside India?"
+  },
+  {
    "key": "uses_vcip_onboarding",
    "group": "organisation",
    "type": "boolean",
@@ -79,7 +97,7 @@
    "group": "board_and_listing",
    "type": "number",
    "question": "What is your paid-up equity capital?",
-   "unit": "₹ crore",
+   "unit": "\u20b9 crore",
    "min": 0
   },
   {
@@ -87,7 +105,7 @@
    "group": "board_and_listing",
    "type": "number",
    "question": "What is your net worth?",
-   "unit": "₹ crore",
+   "unit": "\u20b9 crore",
    "min": 0
   },
   {
@@ -281,7 +299,7 @@
    "group": "transaction",
    "type": "number",
    "question": "What is the transaction amount?",
-   "unit": "₹",
+   "unit": "\u20b9",
    "min": 0
   },
   {
@@ -296,6 +314,20 @@
    "type": "number",
    "question": "How many working days old is the Aadhaar document?",
    "unit": "working days",
+   "min": 0
+  },
+  {
+   "key": "is_promoter_designated_person_or_director",
+   "group": "board_and_listing",
+   "type": "boolean",
+   "question": "Is the person a promoter, member of the promoter group, designated person, or director of the listed company?"
+  },
+  {
+   "key": "securities_traded_value_in_quarter_rupees",
+   "group": "transaction",
+   "type": "number",
+   "question": "What is the aggregate value of securities acquired or disposed of by this person in the calendar quarter?",
+   "unit": "\u20b9",
    "min": 0
   }
  ]
