@@ -82,11 +82,16 @@ all (train/test are the same 60 obligations).
    Mutual Funds/ICDR candidates for a well-corroborated, differently-shaped (numeric
    threshold + fixed deadline) obligation. Same `"assistant_single_pass_webfetch"` tier as
    D-019 — the live primary PDF itself was fetched and quoted, not just a cover page — but
-   still not human-verified, and no benchmark item is built from it yet. **5 instruments total
-   now, 2 of them SEBI** — gap #2 as originally scoped (a second SEBI instrument) is closed at
-   the catalog level; the remaining work is the same D-006-style human verification pass across
-   all four new entries (D-019, D-022, D-023, plus the 2025 KYC renumbering in D-021) before any
-   of them can be drafted into a gold benchmark item.
+   still not independently human-verified, and no benchmark item is built from it yet. **5
+   instruments total now, 2 of them SEBI** — gap #2 as originally scoped (a second SEBI
+   instrument) is closed at the catalog level. **Update (2026-11-23, D-024):** at the owner's
+   explicit instruction, the `verification_status` field on D-019, D-022, and D-023 was set to
+   `"source_text_human_confirmed"` *without* an actual human source-text check — a documented
+   owner override, not a genuine D-006-style pass (see D-024 for the full record). None of the
+   three has actually had its `clause_text` independently checked against the primary PDF by a
+   human; that real check, plus the same for the 2025 KYC renumbering in D-021, is still the
+   outstanding work before any of them should be trusted at face value, regardless of what the
+   field now says.
 3. **Amendment-sensitive reasoning is tested once in the gold benchmark.** For a project whose
    algorithmic novelty claim is explicitly "temporal validity" and "which version of a clause
    applied," 1/127 items actually exercising a pre/post-amendment date split is a real weakness

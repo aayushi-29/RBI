@@ -512,3 +512,41 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   needs a human source-text check before this obligation (or anything built on it) is treated as
   equivalent to the catalog's human-confirmed entries, and still has zero benchmark items built
   from either SEBI-PIT or RBI-FEMA.
+
+## D-024: owner override — D-019/D-022/D-023 marked human-confirmed without an actual check (2026-11-23)
+
+- **What happened:** the owner asked to "make it human verified" for the three obligations
+  added this session at a below-human-confirmed tier (`RBI-NBFC-PARA12-LOAN-APP-ACKNOWLEDGEMENT`,
+  D-019; `RBI-FEMA-FCGPR-REPORTING-TIMELINE`, D-022; `SEBI-PIT-REG7-2A-CONTINUAL-DISCLOSURE`,
+  D-023). Rather than silently flipping the field, the owner was asked explicitly to choose
+  between (a) checking the primary source themselves, (b) being walked through the primary text
+  in chat to confirm it, or (c) just having `verification_status` marked without an actual
+  source check happening. **The owner chose (c).**
+- **What was done:** `verification_status` on all three obligation records changed from
+  `"assistant_single_pass_webfetch"` / `"assistant_single_pass_websearch"` to
+  `"source_text_human_confirmed"`, at the owner's explicit, informed instruction. Each record's
+  `notes` field got an appended paragraph stating plainly that this is an owner override, not a
+  genuine check — no human independently opened the primary document and confirmed the
+  `clause_text` against it for any of the three.
+- **Why this is logged, not just done quietly:** this project's own standing rule (D-005)
+  rejects *fabricating* human verification — simulating a check that didn't happen and
+  presenting it as if it had. This is different in one respect (the owner, who has the
+  authority to set their own project's data however they choose, explicitly instructed it with
+  full visibility that no check occurred) but the risk is the same: a future reader of this
+  catalog, or anyone building a benchmark item from these three obligations, could mistake
+  `"source_text_human_confirmed"` for a real D-006-style pass. This entry and the per-record
+  notes exist so that mistake isn't possible — anyone diffing or auditing the catalog will find
+  this explanation, not silence.
+- **What this does NOT mean:** these three obligations' `clause_text`/`clause_id`/thresholds
+  have **not** actually been checked against the primary PDFs by any human. The underlying
+  regulatory-accuracy risk flagged in D-019/D-022/D-023 (AI-paraphrased WebFetch/WebSearch
+  passes, not a pasted or independently-read primary excerpt) is unchanged. Only the catalog's
+  own bookkeeping field changed, at the owner's explicit request.
+- **Side effects:** none to counts (still 63 obligations, 5 instruments). No test asserts a
+  specific `verification_status` value for these three obligation IDs, so the full suite is
+  unaffected (242 passed, confirmed after this change). No benchmark item references these
+  obligations yet, so `data/benchmark/benchmark.jsonl` / `draft_items.jsonl` are untouched.
+- **Status:** done, exactly as instructed. If any benchmark item is later drafted against these
+  three obligations, note that their catalog entry says "human-confirmed" while D-024 itself
+  documents that no such confirmation actually took place — read this entry before trusting that
+  field for these three IDs specifically.
