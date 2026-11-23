@@ -301,3 +301,41 @@ a failure of the search. It does not prove no genuine Conflict exists anywhere i
 it means none has turned up yet in the areas searched (KYC onboarding rules, foreign-student
 remittances, NBFC/listed-entity board governance, and now NBFC/listed-entity related-party
 approval authority).
+
+## Candidate 5 (checked, not found): RBI KYC/PMLA record-retention duty vs. DPDP Act erasure principle
+
+**Checked 2026-11-23, explicitly prompted by the owner naming Conflict as important for project
+approval.** The lead: RBI's KYC Master Direction and the PMLA (Maintenance of Records) Rules,
+2005 require banks to retain customer identification records for 5+ years after a relationship
+ends; the 2025 Digital Personal Data Protection (DPDP) Act's data-minimisation/erasure principle
+appears, on a surface reading, to require the opposite. This is a real, publicly debated tension
+in Indian legal commentary — not an obscure lead.
+
+**What was actually found:** DPDP Act **Section 8(7)** itself carries the resolution. Its
+parent clause opens with "unless retention is necessary for compliance with any law for the time
+being in force" — the erasure duties in 8(7)(a)/(b) are subject to that carve-out, so where PMLA
+or RBI's own Direction requires retention, no erasure duty arises at all. The Act's own
+**Illustration II** addresses banks directly: a customer closing a savings account, where the
+bank "shall retain" personal data for as long as the governing law (PMLA Rules) requires.
+
+**Why it's not a Conflict, on the text found:** this is the clearest-cut case yet, precisely
+*because* the statute anticipated the tension and wrote its own precedence rule — exactly what
+D-004 excludes from Conflict. Source: a legal-commentary analysis
+(unifiedchambers.com/blog/rbi-dpdp-retention-reconciliation) arguing the popular "conflict" thesis
+quotes only 8(7)(a) in isolation and omits both the parent clause and Illustration II. The
+article flags one real residual case — data kept only on *consent* (e.g. marketing profiles, no
+statutory retention basis) — but that is a different, non-overlapping fact pattern from KYC/AML
+retention, not a conflict within it.
+
+**Caveat:** sourced via a single secondary legal-commentary analysis plus the statutory text it
+quotes, not a primary read of DPDP Section 8(7) and its illustrations by this project. The
+underlying legal reasoning (carve-out clauses resolving apparent retention/erasure tensions) is
+well-established doctrine, not a novel claim, but this specific analysis has not been
+independently cross-checked against a second source.
+
+**Running pattern, updated:** five candidates across two sessions, zero genuine Conflicts. Two
+of the five (this one and Candidate 4) turned out to have an *explicit* textual precedence rule
+resolving them, which is the strongest possible form of "not a Conflict" under D-004 — not an
+absence of evidence, but a documented resolution. Per `docs/DATASET_SPEC.md` rule 8 and
+`README.md`'s explicit instruction not to invent Conflict examples, this pattern is reported
+as-is rather than papered over.

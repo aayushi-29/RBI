@@ -655,3 +655,30 @@ D-001 and D-003 are decided as above. D-002 and D-004 are preserved as drafting/
   coverage (17 items, exercising all four outcome-relevant mechanisms: boolean gates, a numeric
   threshold with a boundary case, missing-fact abstention, and amendment-sensitivity) without
   any of it being mistaken for gold-tier evidence.
+
+## D-028: fifth Conflict candidate checked; named the project's own anti-fabrication rule (2026-11-23)
+
+- **Context:** the owner said Conflict matters for project approval, which could read as
+  pressure to produce one however possible. Before searching further, it's worth stating
+  plainly: `docs/DATASET_SPEC.md` rule 8 and `README.md` both explicitly instruct not to invent
+  Conflict examples merely to balance classes or fill a gap — this is a founding project rule,
+  not something added this session. That constraint is unchanged by anything in this entry.
+- **What was searched:** RBI KYC/PMLA's 5+ year record-retention duty against the 2025 DPDP
+  Act's data-erasure principle — a real, publicly-debated tension in Indian legal commentary,
+  not a weak lead.
+- **Result: not a Conflict, and unusually clear-cut.** DPDP Act Section 8(7)'s own parent clause
+  ("unless retention is necessary for compliance with any law for the time being in force") and
+  its Illustration II (naming banks directly) resolve the apparent tension by explicit statutory
+  carve-out. Documented as "Candidate 5 (checked, not found)" in
+  `docs/CONFLICT_CANDIDATES.md`, sourced from a legal-commentary analysis of the statute's actual
+  text (not independently cross-checked against a second source).
+- **Pattern, now five candidates deep:** two of five (this one and Candidate 4) have an
+  *explicit* documented precedence rule resolving them — the strongest possible "not a Conflict"
+  finding under D-004, not merely an absence of evidence either way.
+- **What this does NOT do:** no catalog, benchmark, or test change. This is a research record
+  only, same as D-025.
+- **Status:** closed as a negative result. The honest options remain what they were after D-025:
+  keep searching, accept a clearly-labeled non-gold demo obligation to show the mechanism works,
+  or treat the empty `Conflict` class and its documented 5-candidate search trail as a reportable
+  finding in its own right — which is a legitimate position for a research prototype to take,
+  and the one the project's own spec points toward.
